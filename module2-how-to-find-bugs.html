@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الموديول الثاني: كيف تجد الأخطاء ودورة الاختبار العملية (How to Find Bugs & Test Process) | Test IO Master Hub</title>
+  <meta name="description" content="الدليل الشامل للموديول الثاني من كورس Exploratory Testing في أكاديمية Test IO: منهجية إيجاد الأخطاء، مقال دورة الاختبار، مستويات المختبرين، وتأمين البيانات.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-white">
+
+  <!-- Top Navbar -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Back to Hub & Navigation -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition text-xs font-semibold">
+          <i class="fa-solid fa-arrow-right"></i>
+          <span>الرجوع للبوابة الرئيسية</span>
+        </a>
+        <div class="hidden sm:block h-6 w-px bg-slate-800"></div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span class="text-base font-bold text-white">Test IO Academy</span>
+          <span class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-amber-500/20 text-amber-400 border border-amber-500/30">Module #2</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="quiz-bug-types.html" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-slate-700/80 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span class="hidden md:inline">الموديول 1:</span>
+          <span>حل كويز Bug Types</span>
+        </a>
+        <a href="#test-lifecycle" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-amber-600 hover:bg-amber-500 text-white shadow-md shadow-amber-600/20 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-arrows-spin"></i>
+          <span>دورة الاختبار (Test Process)</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative overflow-hidden pt-12 pb-10 border-b border-slate-800/60 bg-gradient-to-b from-amber-950/20 via-slate-950 to-slate-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
+          <i class="fa-solid fa-bullseye"></i>
+          <span>Exploratory Testing Course — Module #2</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>لا يوجد كويز تقييمي نهائي (اضغط Finish للاجتياز)</span>
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+        كيف تجد الأخطاء باحترافية؟ ودليل <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-200">دورة الاختبار العملية</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-6">
+        دليلك المنهجي الشامل لدخول دورات الاختبار (Test Cycles)، فهم صلاحيات مستويات المختبرين (Copper vs Bronze)، قواعد قبول ورفض الدعوات، والأهم: القواعد الأمنية الصارمة لحماية بيانات العملاء وتجنب حظر حسابك.
+      </p>
+
+      <!-- Important Notice Banner -->
+      <div class="max-w-2xl mx-auto p-4 rounded-2xl bg-amber-950/40 border border-amber-500/40 text-amber-200 text-xs text-right space-y-1.5 mb-8">
+        <div class="flex items-center gap-2 font-bold text-amber-400 text-sm">
+          <i class="fa-solid fa-bell"></i>
+          <span>تنبيه هام حول طريقة اجتياز هذا الموديول في أكاديمية Test IO:</span>
+        </div>
+        <p class="text-slate-300 leading-relaxed">
+          هذا الموديول تم تصميمه كموديول قراءة واستيعاب تأسيسي (Study Material). لا يوجد كويز أو أسئلة متعددة الخيارات في نهايته. بمجرد إتمام قراءة الماتريال وفهم النقاط المشروحة أدناه، توجّه إلى صفحة الأكاديمية واضغط على زر <strong class="text-amber-400 bg-amber-500/20 px-1.5 py-0.5 rounded font-mono">‘Finish’</strong> ليتم اعتماد نجاحك واكتمال الموديول بنسبة 100%!
+        </p>
+      </div>
+
+      <!-- Quick Navigation Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="#video-masterclass" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-brands fa-youtube text-red-500"></i>
+          <span>1. الفيديوهات التعليمية والشرح المرئي</span>
+        </a>
+        <a href="#test-lifecycle" class="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-white shadow-lg transition flex items-center gap-2">
+          <i class="fa-solid fa-arrows-split-up-and-left"></i>
+          <span>2. مراحل دورة الاختبار (Test Process Pipeline)</span>
+        </a>
+        <a href="#tester-levels" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-solid fa-medal text-amber-400"></i>
+          <span>3. مستويات المختبرين (Copper vs Bronze)</span>
+        </a>
+        <a href="#interactive-simulator" class="px-4 py-2 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition flex items-center gap-2">
+          <i class="fa-solid fa-gamepad"></i>
+          <span>4. محاكي قرارات دورة الاختبار التفاعلي</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 flex-1 w-full">
+
+    <!-- ======================================================== -->
+    <!-- SECTION 1: VIDEO MASTERCLASSES                           -->
+    <!-- ======================================================== -->
+    <section id="video-masterclass" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">الفيديوهات الرسمية</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-brands fa-youtube text-red-500"></i>
+            <span>الشرح المرئي للموديول الثاني والمقال العملي</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Video 1 Card -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-amber-500 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="badge-pill bg-amber-500/20 text-amber-400 text-xs font-bold">فيديو #1: المنهجية</span>
+              <span class="text-xs text-slate-400 flex items-center gap-1">
+                <i class="fa-solid fa-clock"></i>
+                <span>شرح تفصيلي</span>
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-white">كيف تجد الأخطاء البرمجية؟ (How to Find Bugs)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              يركز هذا الفيديو على العقلية الاستكشافية (Exploratory Mindset): كيف تتنقل داخل التطبيق كالمستخدم الحقيقي ولكن بعين فاحصة ترصد الثغرات الوظيفية، تفكيك واجهات الاستخدام، واستكشاف السيناريوهات غير المتوقعة (Edge Cases).
+            </p>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 space-y-1">
+              <strong class="text-amber-400 block">💡 أهم ما ستتعلمه:</strong>
+              <div>• التفرقة بين المسار السعيد (Happy Path) والمسارات الشاذة (Negative Testing).</div>
+              <div>• رصد أخطاء التحقق من المدخلات (Form Validation).</div>
+              <div>• تتبع استجابة واجهة المستخدم مع شبكات الاتصال البطيئة.</div>
+            </div>
+          </div>
+
+          <a href="https://youtu.be/FXb68zt4xls?si=m21oC29XiKk7HJiY" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-youtube text-base"></i>
+            <span>مشاهدة فيديو منهجية اصطياد الأخطاء (يوتيوب) ↗</span>
+          </a>
+        </div>
+
+        <!-- Video 2 Card -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-cyan-500 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="badge-pill bg-cyan-500/20 text-cyan-400 text-xs font-bold">فيديو #2: الدورة العملية</span>
+              <span class="text-xs text-slate-400 flex items-center gap-1">
+                <i class="fa-solid fa-clock"></i>
+                <span>شرح تطبيقي</span>
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-white">شرح مقال الأكاديمية: دورة الاختبار (Test Process)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              شرح عملي مفصّل لمقال الأكاديمية الرسمي (Written by Markus): استلام الدعوات، شروط قبول المقعد والانسحاب، بدء الـ Test Session، كيفية مراجعة الـ Team Leader، ونظام الاعتراضات (Disputes).
+            </p>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 space-y-1">
+              <strong class="text-cyan-400 block">💡 أهم ما ستتعلمه:</strong>
+              <div>• أسرار خوارزمية توزيع الدعوات وكيف تتلقى اختبارات أكثر.</div>
+              <div>• القيد الصارم المفروض على مختبري مستوى Copper (مقعدين فقط).</div>
+              <div>• حظر إضافات الترجمة وحماية بيانات العملاء من التسريب.</div>
+            </div>
+          </div>
+
+          <a href="https://youtu.be/gv-Jv9UOqtQ?si=OFsRsaEE5c-HUdKd" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-youtube text-base"></i>
+            <span>مشاهدة شرح مقال دورة الاختبار بالتفصيل (يوتيوب) ↗</span>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 2: THE COMPLETE TEST LIFECYCLE PIPELINE          -->
+    <!-- ======================================================== -->
+    <section id="test-lifecycle" class="space-y-8 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">المقال الرسمي للأكاديمية</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-arrows-split-up-and-left text-amber-400"></i>
+            <span>دورة الاختبار العملية الكاملة (The Test Process Step-by-Step)</span>
+          </h2>
+        </div>
+      </div>
+
+      <!-- Lifecycle Steps Timeline / Cards -->
+      <div class="space-y-4">
+
+        <!-- Step 1: Motivation & Invitations -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              1
+            </div>
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-base font-bold text-white">طبيعة الاختبارات واستلام الدعوات (Test Invitations)</h3>
+                <span class="badge-pill bg-slate-800 text-slate-300 text-[11px]">خوارزمية التوزيع الذكية</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                الاختبارات في Test IO هي عبارة عن <strong>مشاريع مصغرة (Mini-projects)</strong> يطلبها عملاء المنصة لفحص نطاق معين (Scope) من منتجاتهم. يتم إرسال الدعوات تلقائياً عبر الإيميل ولوحة التحكم (تحت قسم <em>“Interesting tests for you”</em>) بناءً على خوارزمية ذكية تطابق:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs">
+                <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 flex items-center gap-2">
+                  <i class="fa-solid fa-id-card text-amber-400"></i>
+                  <span>بيانات البروفايل والدولة</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 flex items-center gap-2">
+                  <i class="fa-solid fa-mobile-screen text-cyan-400"></i>
+                  <span>الأجهزة المسجلة بحسابك</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 flex items-center gap-2">
+                  <i class="fa-solid fa-chart-line text-emerald-400"></i>
+                  <span>مستوى أدائك وجودة تقاريرك</span>
+                </div>
+              </div>
+              <div class="mt-2 text-xs text-emerald-400 font-medium">
+                💡 <strong>نصيحة الأكاديمية الذهبية:</strong> أضف كافة أجهزتك (هواتف، أجهزة لوحية، كمبيوترات بأنظمة مختلفة، ساعات ذكية، أجهزة بث وتلفزيون) في صفحة <a href="https://tester.test.io/account/devices" target="_blank" class="underline font-bold text-emerald-300">Your Devices</a> لمضاعفة فرص وصول الدعوات إليك.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Accepting or Rejecting & Level Limits -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              2
+            </div>
+            <div class="space-y-3 flex-1">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-base font-bold text-white">قبول ورفض الدعوة وقيود المستويات (Accepting & Tester Levels)</h3>
+                <span class="badge-pill bg-rose-500/20 text-rose-400 text-[11px]">قيد مهم جداً للمبتدئين</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                لك الحرية الكاملة في قبول الدعوة أو رفضها. لكن المنصة تضع شروطاً صارمة حسب مستوى حسابك:
+              </p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-900 border border-amber-500/30 space-y-2">
+                  <div class="flex items-center gap-2 text-amber-400 font-bold text-xs">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>المستوى الأول: النحاسي (Tester Level 1: Copper)</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    يُسمح لك بقبول وحجز مقعد في <strong class="text-amber-400 font-bold">2 دورة اختبار فقط كحد أقصى في نفس الوقت!</strong> إذا وصلتك دعوة لاختبار ثالث وتريد المشاركة، يجب أولاً الانسحاب (Quit) من أحد الاختبارين السابقين لإخلاء المقعد.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/30 space-y-2">
+                  <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs">
+                    <i class="fa-solid fa-award"></i>
+                    <span>المستوى الثاني فأعلى: البرونزي (Level 2: Bronze or above)</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    تُرفع القيود! يمكنك الانضمام إلى <strong class="text-emerald-400 font-bold">أي عدد تريده من الاختبارات في نفس الوقت</strong>، مع التنبيه على ضرورة مراعاة وقتك وقدرتك على فحصها جميعاً.
+                  </p>
+                </div>
+              </div>
+
+              <!-- How to quit -->
+              <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 space-y-1">
+                <strong class="text-slate-200 block">🚪 كيف تنسحب من دورة اختبار إذا لم تعد قادراً على الاختبار؟</strong>
+                <div>1. الضغط على النقاط الثلاث (...) بجوار اسم الاختبار في الشريط الجانبي الأيسر ⬅️ ثم اختيار <em>“Quit test cycle and free seat”</em>.</div>
+                <div>2. أو الضغط على زر <em>“Quit test and free seat”</em> الموجود أسفل صفحة الـ Test Overview.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Understanding Test Scope & Instructions -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              3
+            </div>
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-base font-bold text-white">قراءة نطاق الاختبار والتعليمات (Test Scope & Instructions)</h3>
+                <span class="badge-pill bg-indigo-500/20 text-indigo-400 text-[11px]">مفتاح قبول التقارير</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                قبل أن تبدأ بفحص أي زر، اقرأ تعليمات العميل في صفحة Overview بعناية فائقة. العميل يحدد بوضوح ما هو داخل النطاق (<strong class="text-emerald-400">In-Scope</strong>) وما هو ممنوع (<strong class="text-rose-400">Out-of-Scope</strong>). أي خطأ تبلغه خارج النطاق يُرفض فوراً ويضر بتقييمك وسجلك!
+              </p>
+              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+                <span class="text-amber-400 font-bold block flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-question"></i>
+                  <span>السؤال الإلزامي: "Will you participate in this test?"</span>
+                </span>
+                <p>
+                  يجب أن تجيب بـ <strong class="text-emerald-400">نعم</strong> إذا قرأت التعليمات ووافقت عليها، أو بـ <strong class="text-rose-400">لا</strong> مع ذكر سبب صادق ومنطقي، والمنصة تقدر هذا الصدق لإعادة توزيع المقاعد.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Strict Security & Translation Prohibition -->
+        <div class="glass-panel p-6 rounded-2xl border-2 border-rose-500/50 bg-rose-950/10 hover:border-rose-500 transition">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-base font-bold text-rose-300">تحذير أمني صارم: حظر إضافات الترجمة وحماية بيانات العملاء</h3>
+                <span class="badge-pill bg-rose-500/30 text-rose-300 text-[11px] font-bold">Strict Protocol</span>
+              </div>
+              <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                تنص قواعد بروتوكول Test IO الرسمي بشكل حاسم على:
+              </p>
+              <div class="p-3.5 rounded-xl bg-slate-950 border border-rose-500/30 text-xs space-y-2">
+                <div class="text-rose-400 font-bold flex items-center gap-2">
+                  <i class="fa-solid fa-ban"></i>
+                  <span>ممنوع منعاً باتاً استخدام إضافات المتصفح للترجمة (Browser AddOn Translators):</span>
+                </div>
+                <p class="text-slate-300 leading-relaxed">
+                  يُحظر على المختبرين تفعيل إضافات الترجمة التلقائية لصفحات الاختبار. فإلى جانب أنها تُشوه شكل العناصر وتُظهر أخطاءً وهمية، فإن إرسال نصوص وبيانات صفحات العميل إلى خدمات ترجمة خارجية لطرف ثالث (Third-party tools) يُعد خرقاً أمنياً لاتفاقية السرية (Confidentiality & Data Integrity) وقد يؤدي لحظر الحساب فوراً!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Test Environment & Starting Test Session -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              4
+            </div>
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-base font-bold text-white">بيئة الاختبار وبدء الجلسة (Environment & Test Session)</h3>
+                <span class="badge-pill bg-cyan-500/20 text-cyan-400 text-[11px]">بدء الصيد</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                روابط الموقع وبيانات الدخول (Testing Environment) <strong>لا تظهر أبداً إلا بعد بداية وقت الاختبار الرسمي</strong>. ستشاهد عداداً تنازلياً في أعلى الصفحة يوضح الوقت المتبقي لبدء الاختبار، أو الوقت المتبقي لانتهاء الدورة.
+              </p>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-1">
+                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+                  <span class="text-cyan-400 font-bold block">1. بدء جلسة الاختبار (Start Test Session):</span>
+                  <p class="text-slate-400">زر <em>“Submit Bug”</em> لن يصبح نشطاً وقابلاً للنقر إلا بعد الضغط على زر بدء الجلسة داخل بيئة الاختبار.</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+                  <span class="text-amber-400 font-bold block">2. قيد الجهاز لمستوى Copper:</span>
+                  <p class="text-slate-400">الجهاز الذي اخترته عند الانضمام للدورة هو الجهاز الوحيد المسموح لك برفع أخطاء من خلاله طوال مدة الدورة حتى تصبح Bronze.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Review of Your Work & Disputes -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              5
+            </div>
+            <div class="space-y-3 flex-1">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-base font-bold text-white">مراجعة التقرير، قرار العميل، والاعتراضات (Review & Disputes)</h3>
+                <span class="badge-pill bg-emerald-500/20 text-emerald-400 text-[11px]">كيف تضمن فلوسك</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                يمر تقريرك بمرحلتين مراجعة أساسيتين قبل أن تُدفع لك المكافأة:
+              </p>
+
+              <!-- Two Review Stages -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-900 border border-indigo-500/30 space-y-1.5">
+                  <div class="flex items-center gap-2 text-indigo-400 font-bold text-xs">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>المرحلة 1: قائد الفريق (Team Leader - TL)</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    يفحص التقرير، يتأكد من وضوح الخطوات والفيديو والجهاز. قد يطلب منك تعديل التقرير أو توضيح نقطة معينة (Info Request)، وإذا وافق عليه يُمرره للعميل.
+                  </p>
+                  <span class="text-[11px] text-amber-400 block font-medium">⚠️ راقب الإشعارات والإيميل دائماً للرد سريعاً على أي استفسار من الـ TL.</span>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/30 space-y-1.5">
+                  <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs">
+                    <i class="fa-solid fa-building-user"></i>
+                    <span>المرحلة 2: العميل (The Customer)</span>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    العميل يراجع التقارير المُعتمدة من الـ TL ويتخذ القرار النهائي (قبول الباج ودفع المكافأة أو الرفض). يمكن للعميل أيضاً إرسال استفسار لك حتى بعد انتهاء الدورة.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Dispute System -->
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-cyan-500/30 text-xs space-y-2">
+                <span class="text-cyan-400 font-bold flex items-center gap-1.5">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                  <span>نظام الاعتراضات (The Dispute Feature) — حقك لا يضيع:</span>
+                </span>
+                <p class="text-slate-300 leading-relaxed">
+                  إذا رفض التيمليدر تقريرك وأنت متأكد بنسبة 100% أن الخطأ حقيقي وداخل النطاق:
+                </p>
+                <div class="space-y-1 text-slate-300 pl-4 border-r-2 border-cyan-500/40 pr-3">
+                  <div>1. اكتب تعليقاً مهذباً واحترافياً على التقرير تسأل التيمليدر عن سبب الرفض وتوضح حجتك بالأدلة.</div>
+                  <div>2. إذا لم يقتنع أو تأخر كثيراً في الرد، يمكنك فتح <strong class="text-cyan-300">اعتراض رسمي (Dispute)</strong> لتحويل التقرير إلى مراجع مستقل أعلى يقوم بإعادة تقييم الحالة بإنصاف.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 3: TESTER LEVELS COMPARISON TABLE                -->
+    <!-- ======================================================== -->
+    <section id="tester-levels" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">المستويات والصلاحيات</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-medal text-amber-400"></i>
+            <span>مقارنة مستويات المختبرين: Copper مقابل Bronze فأعلى</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-800 glass-panel">
+        <table class="w-full text-right text-xs text-slate-300">
+          <thead class="bg-slate-900/90 text-slate-200 uppercase font-mono text-[11px] border-b border-slate-800">
+            <tr>
+              <th class="p-4 font-bold">وجه المقارنة</th>
+              <th class="p-4 font-bold text-amber-400">Level 1: Copper (النحاسي)</th>
+              <th class="p-4 font-bold text-emerald-400">Level 2: Bronze or above (البرونزي فأعلى)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 font-sans">
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white">عدد الاختبارات المتزامنة</td>
+              <td class="p-4 text-amber-300 font-bold">2 اختبار فقط كحد أقصى (يجب الانسحاب للمشاركة في غيرهما)</td>
+              <td class="p-4 text-emerald-300 font-bold">عدد غير محدود (حسب وقتك وقدرتك)</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white">تغيير الجهاز أثناء الدورة</td>
+              <td class="p-4 text-slate-400">مقيد بالجهاز الذي تم اختياره عند بدء الدورة</td>
+              <td class="p-4 text-emerald-400">مرونة كاملة في التبديل بين أجهزتك المسجلة</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white">أولوية وصول الدعوات</td>
+              <td class="p-4 text-slate-400">دعوات دورات التدريب والاختبارات التمهيدية</td>
+              <td class="p-4 text-emerald-400">أولوية متقدمة في الدورات الخاصة والمدفوعة بأسعار أعلى</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40 transition">
+              <td class="p-4 font-bold text-white">كيف ترتقي من Copper إلى Bronze؟</td>
+              <td class="p-4 text-slate-300" colspan="2">
+                عبر رفع تقارير بجودة عالية بدون رفض، الحفاظ على معدل قبول مرتفع (High Acceptance Rate)، وسرعة الرد على طلبات التيمليدر.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 4: INTERACTIVE SIMULATOR                         -->
+    <!-- ======================================================== -->
+    <section id="interactive-simulator" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest block mb-1">تدريب تفاعلي وسيناريوهات واقعية</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-gamepad text-indigo-400"></i>
+            <span>محاكي قرارات دورة الاختبار (Test Cycle Simulator)</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl border border-indigo-500/30 space-y-6">
+        
+        <div>
+          <h3 class="text-base font-bold text-white mb-1">اختر سيناريو لاختبار معرفتك بقواعد المنصة:</h3>
+          <p class="text-xs text-slate-400">انقر على الإجابة الصحيحة لكل سيناريو عملي يواجهه المختبر في Test IO:</p>
+        </div>
+
+        <!-- Scenario 1 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+          <div class="text-xs font-bold text-white flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 font-mono">سيناريو 1</span>
+            <span>أنت حالياً في مستوى Copper ولديك مقعدان نشطان في دورتين، ووصلتك دعوة مميزة لدورة ثالثة، ماذا تفعل؟</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <button onclick="checkSim(1, false, this)" class="p-3 text-right rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 transition">
+              أ. أقبل الدعوة فوراً فالمنصة تسمح بأي عدد.
+            </button>
+            <button onclick="checkSim(1, true, this)" class="p-3 text-right rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 transition">
+              ب. أنسحب من إحدى الدورتين الحاليين أولاً (Quit Cycle) لإخلاء مقعد ثم أقبل الدورة الجديدة.
+            </button>
+          </div>
+          <div id="sim-res-1" class="hidden text-xs p-2.5 rounded-lg"></div>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+          <div class="text-xs font-bold text-white flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 font-mono">سيناريو 2</span>
+            <span>أثناء تصفح موقع العميل في بيئة الاختبار، ظهرت نصوص ألمانية لا تفهمها. هل تفعل ترجمة جوجل للمتصفح؟</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <button onclick="checkSim(2, false, this)" class="p-3 text-right rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 transition">
+              أ. نعم، مسموح استخدام إضافات الترجمة في المتصفح لفهم الصفحة.
+            </button>
+            <button onclick="checkSim(2, true, this)" class="p-3 text-right rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 transition">
+              ب. لا، ممنوع منعاً باتاً تفعيل إضافات الترجمة لأنها تُخرق سرية بيانات العميل وتسبب أخطاء وهمية.
+            </button>
+          </div>
+          <div id="sim-res-2" class="hidden text-xs p-2.5 rounded-lg"></div>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+          <div class="text-xs font-bold text-white flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 font-mono">سيناريو 3</span>
+            <span>انتهى وقت الدورة التدريبية وتريد معرفة ما الخطوة القادمة لاجتياز الموديول الثاني في Test IO؟</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <button onclick="checkSim(3, true, this)" class="p-3 text-right rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 transition">
+              أ. أضغط على زر ‘Finish’ في نهاية الموديول؛ لأنه لا يوجد كويز تقييمي نهائي في هذا الموديول.
+            </button>
+            <button onclick="checkSim(3, false, this)" class="p-3 text-right rounded-lg bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-300 transition">
+              ب. أنتظر إرسال رابط كويز عبر الإيميل لأحله أولاً.
+            </button>
+          </div>
+          <div id="sim-res-3" class="hidden text-xs p-2.5 rounded-lg"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 5: FINAL CHECKLIST FOR ACCREDITATION             -->
+    <!-- ======================================================== -->
+    <section class="glass-panel p-6 sm:p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-950/20 via-slate-900 to-slate-950 space-y-6 text-center">
+      <div class="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-2xl mx-auto shadow-lg shadow-amber-500/10">
+        <i class="fa-solid fa-flag-checkered"></i>
+      </div>
+      <div class="space-y-2 max-w-xl mx-auto">
+        <h2 class="text-2xl font-black text-white">مبروك! لقد فهمت الموديول الثاني بالكامل</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          أنت الآن مؤهل تماماً لإتمام الموديول في أكاديمية Test IO. تذكر دائماً: اقرأ النطاق بدقة، التزم بجهازك، راقب إشعارات التيمليدر، ولا تتردد في استخدام ميزة Dispute إذا كنت صاحب حق.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a href="https://tester.test.io/academy" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-amber-600/20 transition flex items-center gap-2">
+          <span>الذهاب لأكاديمية Test IO والضغط على Finish ↗</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="quiz-bug-types.html" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition text-xs sm:text-sm font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-cyan-400"></i>
+          <span>مراجعة كويز الموديول الأول (Bug Types)</span>
+        </a>
+        <a href="index.html" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition text-xs sm:text-sm font-semibold">
+          <span>العودة للبوابة الرئيسية ⬅️</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="font-bold text-amber-400 hover:underline">Test IO Master Hub</a>
+        <span>— دليل دراسة واجتياز كورس الاستكشاف (Exploratory Testing Course)</span>
+      </div>
+      <div>
+        <a href="index.html" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition font-semibold">
+          العودة للرئيسية ⬅️
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Interactive Simulator -->
+  <script>
+    function checkSim(scenarioId, isCorrect, btnElement) {
+      const resDiv = document.getElementById('sim-res-' + scenarioId);
+      const parentContainer = btnElement.parentElement;
+      const buttons = parentContainer.querySelectorAll('button');
+      
+      // Reset button styles in this scenario
+      buttons.forEach(b => {
+        b.classList.remove('border-emerald-500', 'bg-emerald-950/40', 'border-rose-500', 'bg-rose-950/40');
+      });
+
+      resDiv.classList.remove('hidden', 'bg-emerald-950/50', 'border-emerald-500/50', 'text-emerald-300', 'bg-rose-950/50', 'border-rose-500/50', 'text-rose-300', 'border');
+      resDiv.classList.add('border');
+
+      if (isCorrect) {
+        btnElement.classList.add('border-emerald-500', 'bg-emerald-950/40');
+        resDiv.classList.add('bg-emerald-950/50', 'border-emerald-500/50', 'text-emerald-300');
+        resDiv.innerHTML = '<strong>✅ إجابة صحيحة ومطابقة لبروتوكول Test IO!</strong> أحسنت، هذا هو السلوك النظامي الصحيح تماماً.';
+      } else {
+        btnElement.classList.add('border-rose-500', 'bg-rose-950/40');
+        resDiv.classList.add('bg-rose-950/50', 'border-rose-500/50', 'text-rose-300');
+        resDiv.innerHTML = '<strong>❌ إجابة غير صحيحة!</strong> راجع قواعد المقال في الأعلى؛ فمخالفة هذا الإجراء قد تمنعك من الانضمام أو تُعرّض حسابك للمخالفة.';
+      }
+    }
+  </script>
+
+</body>
+</html>
