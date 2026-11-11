@@ -31,12 +31,16 @@ function initTabs() {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-tab-target');
 
+      // Synchronize all tab buttons (desktop, mobile nav, and inside-page links)
       tabButtons.forEach(b => {
-        b.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg');
-        b.classList.add('text-slate-400', 'hover:bg-slate-800', 'hover:text-slate-200');
+        if (b.getAttribute('data-tab-target') === targetId) {
+          b.classList.add('bg-indigo-600', 'text-white', 'shadow-lg');
+          b.classList.remove('text-slate-400', 'hover:bg-slate-800');
+        } else {
+          b.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg');
+          b.classList.add('text-slate-400', 'hover:bg-slate-800', 'hover:text-slate-200');
+        }
       });
-      btn.classList.add('bg-indigo-600', 'text-white', 'shadow-lg');
-      btn.classList.remove('text-slate-400', 'hover:bg-slate-800');
 
       tabContents.forEach(content => {
         content.classList.remove('active');
