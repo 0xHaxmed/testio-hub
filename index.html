@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة احتراف Test IO المتكاملة | الدليل والأدوات والتريكات</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Navbar -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Brand -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+          <i class="fa-solid fa-bug text-xl text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-bold tracking-tight text-white">Test IO</span>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded-md bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">Master Hub</span>
+          </div>
+          <p class="text-xs text-slate-400">بوابة فحص البرمجيات الشاملة | من الصفر إلى الأرباح</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="hidden xl:flex items-center gap-1 p-1 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+        <button data-tab-target="tab-roadmap" class="px-3 py-2 font-semibold rounded-xl bg-indigo-600 text-white shadow-lg transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-map"></i>
+          <span>الخطوات</span>
+        </button>
+        <button data-tab-target="tab-generator" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-bolt"></i>
+          <span>مولد التقارير</span>
+        </button>
+        <button data-tab-target="tab-checklist" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-robot text-emerald-400"></i>
+          <span>الفاحص الآلي (AI Linter)</span>
+        </button>
+        <button data-tab-target="tab-calculator" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-calculator text-cyan-400"></i>
+          <span>حاسبة الأرباح</span>
+        </button>
+        <button data-tab-target="tab-tools" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-toolbox text-amber-400"></i>
+          <span>المسجلات والضرائب</span>
+        </button>
+        <button data-tab-target="tab-tricks" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>التريكات</span>
+        </button>
+        <button data-tab-target="tab-dispute" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          <span>الاعتراضات</span>
+        </button>
+        <button data-tab-target="tab-glossary" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>قاموس QA</span>
+        </button>
+      </nav>
+
+      <!-- Quick Action button -->
+      <div class="flex items-center gap-3">
+        <a href="https://test.io/become-a-tester" target="_blank" class="px-4 py-2 text-sm font-medium rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition flex items-center gap-2">
+          <span>دخول المنصة</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs text-indigo-400"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Mobile Nav Bar -->
+    <div class="xl:hidden flex items-center gap-2 overflow-x-auto px-4 py-2 border-t border-slate-800/60 bg-slate-900/90 scrollbar-none text-xs">
+      <button data-tab-target="tab-roadmap" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg bg-indigo-600 text-white">الخطوات</button>
+      <button data-tab-target="tab-generator" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800">مولد التقارير</button>
+      <button data-tab-target="tab-checklist" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800 text-emerald-400">الفاحص الآلي</button>
+      <button data-tab-target="tab-calculator" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800 text-cyan-400">حاسبة الأرباح</button>
+      <button data-tab-target="tab-tools" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800">المسجلات والضرائب</button>
+      <button data-tab-target="tab-tricks" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800">التريكات</button>
+      <button data-tab-target="tab-dispute" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800">الاعتراضات</button>
+      <button data-tab-target="tab-glossary" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800">قاموس QA</button>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative overflow-hidden pt-10 pb-8 border-b border-slate-800/60 bg-gradient-to-b from-indigo-950/20 via-slate-950 to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-3">
+        <i class="fa-solid fa-robot text-emerald-400"></i>
+        <span>مزود بنظام الفحص الآلي الذكي للنصوص والفيديو لضمان قبول التقرير 100%</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
+        بوابتك الذكية لاحتراف العمل على <span class="gradient-text">Test IO</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
+        الخطوات الدقيقة من التسجيل واجتياز الكويز، إلى فاحص جودة التقرير الآلي، وضبط الفيديو، وحاسبة الأرباح التقديرية.
+      </p>
+
+      <!-- Quick Metrics Counter -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mt-6">
+        <div class="glass-card p-3 rounded-2xl text-center">
+          <div class="text-xl font-bold text-indigo-400">0$ إلى 50$+</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">مكافأة الباج المقبول</div>
+        </div>
+        <div class="glass-card p-3 rounded-2xl text-center">
+          <div class="text-xl font-bold text-cyan-400">15 - 45 ثانية</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">مدة فيديو الإثبات</div>
+        </div>
+        <div class="glass-card p-3 rounded-2xl text-center">
+          <div class="text-xl font-bold text-emerald-400">> 85%</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">نسبة القبول لترقية الرتبة</div>
+        </div>
+        <div class="glass-card p-3 rounded-2xl text-center">
+          <div class="text-xl font-bold text-amber-400">11 - 15 شهرياً</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">موعد تحويل الأرباح</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+    <!-- ========================================== -->
+    <!-- TAB 1: ROADMAP & STEPS                     -->
+    <!-- ========================================== -->
+    <div id="tab-roadmap" class="tab-content active space-y-8">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-route text-indigo-500"></i>
+            <span>خارطة طريق العمل من الصفر</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">المراحل الست الأساسية لدخول المنصة وتأكيد حسابك والبدء في استلام دورات الاختبار المدفوعة.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Step 1 -->
+        <div class="glass-card p-6 rounded-2xl border-l-4 border-indigo-500 relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="badge-pill bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">المرحلة 1</span>
+            <i class="fa-solid fa-user-plus text-xl text-indigo-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">التسجيل وربط الأجهزة (Devices Setup)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            سجل ببياناتك الحقيقية باللغة الإنجليزية لتسهيل سحب الأرباح عبر Payoneer أو PayPal لاحقاً.
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-semibold text-amber-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>تريكة الحصول على دعوات كثيرة:</span>
+            </div>
+            <p>أضف كل جهاز لديك في المنزل (كمبيوتر بنظام Windows، لابتوب ماك إن وجد، هواتف أندرويد وآيفون، وجميع المتصفحات Chrome, Firefox, Edge, Safari). الأجهزة ذات إصدارات الأندرويد القديمة (Android 10/11) تأتيها اختبارات حصرية!</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card p-6 rounded-2xl border-l-4 border-cyan-500 relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="badge-pill bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">المرحلة 2</span>
+            <i class="fa-solid fa-graduation-cap text-xl text-cyan-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">اجتياز كويز القبول (Onboarding Test)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            ستدخل في دورة تدريبية تجريبية (Sandbox) لاختبار موقع جاهز به مشاكل برمجية مسبقة للتأكد من فهمك للأساسيات.
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-semibold text-cyan-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>سر النجاح من أول محاولة:</span>
+            </div>
+            <p>المطلوب عادة إيجاد خطأين (1 Functional و 1 Visual). احرص على تصوير فيديو سليم 100% يظهر خطوات المشكلة كاملة مع وضوح الساعة والتاريخ ومؤشر الفأرة/اللمسات.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card p-6 rounded-2xl border-l-4 border-amber-500 relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="badge-pill bg-amber-500/20 text-amber-400 border border-amber-500/30">المرحلة 3</span>
+            <i class="fa-solid fa-bullseye text-xl text-amber-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">قراءة النطاق (In-Scope vs Out-of-Scope)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            أخطر سبب لرفض التقارير هو التبليغ عن شيء ممنوع في تعليمات العميل.
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-semibold text-amber-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span>قاعدة ذهبية:</span>
+            </div>
+            <p>اقرأ صفحة Test Overview بدقة. تأكد هل الدفع الحقيقي مسموح؟ هل الهواتف مسموحة؟ وابحث في قائمة <strong class="text-white">Known Bugs</strong> حتى لا تسجل خطأ سبقك إليه زميل آخر.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass-card p-6 rounded-2xl border-l-4 border-emerald-500 relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="badge-pill bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">المرحلة 4</span>
+            <i class="fa-solid fa-pen-nib text-xl text-emerald-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">كتابة تقرير الباج بالصيغة الثلاثية</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            يجب أن يكون العنوان بالصيغة القياسية: <code class="text-indigo-300 font-mono text-xs">[Where] + [What happens] + [Condition]</code>.
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-semibold text-emerald-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-check-double"></i>
+              <span>خطوات واضحة تبدأ من الصفر:</span>
+            </div>
+            <p>ابدأ دائماً بـ "1. Navigate to URL" واذكر بدقة أين ضغطت وماذا كتبت، حتى يستطيع المطور إعادة تمثيل الخطأ في ثوانٍ.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="glass-card p-6 rounded-2xl border-l-4 border-rose-500 relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 border border-rose-500/30">المرحلة 5</span>
+            <i class="fa-solid fa-video text-xl text-rose-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">مواصفات الفيديو والأدلة (Attachments)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            الباج بدون فيديو صحيح يتم رفضه فوراً من قِبل الـ Team Lead.
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-semibold text-rose-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <span>شروط الفيديو المقبول:</span>
+            </div>
+            <p>المدة بين 15 إلى 45 ثانية - إظهار الساعة وتاريخ اليوم في شريط المهام - إظهار لمسات الأصابع (Show Touches) على الهاتف أو مؤشر الفأرة على الكمبيوتر - كتم الميكروفون.</p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="glass-card p-6 rounded-2xl border-l-4 border-purple-500 relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="badge-pill bg-purple-500/20 text-purple-400 border border-purple-500/30">المرحلة 6</span>
+            <i class="fa-solid fa-money-bill-transfer text-xl text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">الربح السريع وسحب الأموال (Payouts)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            استفد من ميزة <strong class="text-white">Reproductions</strong> لتأكيد أخطاء زملائك بمقابل مادي سريع بدون الحاجة لاكتشاف باج جديد.
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-semibold text-purple-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>طرق ومواعيد الدفع:</span>
+            </div>
+            <p>تدفع المنصة شهرياً بين يوم 11 و 15 من كل شهر عن طريق Payoneer أو PayPal أو التحويل البنكي بحد أدنى 25$.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: BUG REPORT GENERATOR                -->
+    <!-- ========================================== -->
+    <div id="tab-generator" class="tab-content space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-indigo-400"></i>
+            <span>مولد تقارير الأخطاء الاحترافي (Bug Report Builder)</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">املأ الخانات التالية وسيقوم المولد بتركيب العنوان والتقرير بالصيغة الإنجليزية المعتمدة لدى Test IO في الوقت الفعلي.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="loadSampleBugBtn" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/30 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-flask"></i>
+            <span>تحميل نموذج تجريبي</span>
+          </button>
+          <button id="resetBugReportBtn" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>مسح الحقول</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Input Form (Left/Top) -->
+        <div class="lg:col-span-7 space-y-5 glass-panel p-6 rounded-2xl border border-slate-800">
+          
+          <!-- Section 1: Title Builder -->
+          <div class="space-y-3">
+            <label class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-heading"></i>
+              <span>1. تركيب العنوان القياسي (Title Formula)</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">المكان [Where]</span>
+                <input type="text" id="bugPage" placeholder="e.g. Checkout Modal" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">المشكلة [What happens]</span>
+                <input type="text" id="bugIssue" placeholder="e.g. 'Pay Now' button is unclickable" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">الشرط [Condition]</span>
+                <input type="text" id="bugCondition" placeholder="e.g. when entering coupon" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Environment Details -->
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <label class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-laptop"></i>
+              <span>2. بيئة الاختبار (Environment & Severity)</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">الجهاز (Device)</span>
+                <input type="text" id="bugDevice" placeholder="e.g. iPhone 14 Pro / Windows PC" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 ltr-content">
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">نظام التشغيل (OS Version)</span>
+                <input type="text" id="bugOS" placeholder="e.g. iOS 17.4 / Windows 11 23H2" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 ltr-content">
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">إصدار المتصفح أو التطبيق (Browser/App)</span>
+                <input type="text" id="bugBrowser" placeholder="e.g. Chrome 122.0.6261.95" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 ltr-content">
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">درجة الخطورة (Severity)</span>
+                <select id="bugSeverity" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 ltr-content">
+                  <option value="Critical (Crash / Complete Blocker)">Critical (Crash / Blocker) 🔥</option>
+                  <option value="High (Major function broken with NO workaround)" selected>High (No Workaround) ⚠️</option>
+                  <option value="Medium (Function broken BUT workaround exists)">Medium (Workaround exists) ⚡</option>
+                  <option value="Low (Minor functional flaw)">Low (Minor flaw) 💡</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Steps to Reproduce -->
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <label class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-list-ol"></i>
+              <span>3. خطوات تكرار الخطأ (Steps to Reproduce)</span>
+            </label>
+            <textarea id="bugSteps" rows="4" placeholder="1. Navigate to URL&#10;2. Click on...&#10;3. Fill in...&#10;4. Observe..." class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-mono ltr-content"></textarea>
+          </div>
+
+          <!-- Section 4: Expected vs Actual -->
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <label class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span>4. النتيجة المتوقعة مقابل الفعلية (Expected vs Actual)</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">النتيجة المتوقعة (Expected)</span>
+                <textarea id="bugExpected" rows="3" placeholder="What should happen..." class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono ltr-content"></textarea>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block mb-1">النتيجة الفعلية (Actual)</span>
+                <textarea id="bugActual" rows="3" placeholder="What actually happens..." class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono ltr-content"></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Formatted Output (Right/Bottom) -->
+        <div class="lg:col-span-5 sticky top-28 space-y-4">
+          <div class="glass-panel p-6 rounded-2xl border border-indigo-500/30 bg-slate-900/90 shadow-xl shadow-indigo-950/40">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-300">التقرير الجاهز للصق (Live Preview)</span>
+              </div>
+              <button id="copyBugReportBtn" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/30 transition flex items-center gap-2">
+                <i class="fa-regular fa-copy"></i>
+                <span>نسخ التقرير</span>
+              </button>
+            </div>
+
+            <!-- Monospace Code Output -->
+            <pre id="bugReportOutput" class="mt-4 p-4 rounded-xl bg-slate-950 border border-slate-800/80 text-emerald-300 font-mono text-xs whitespace-pre-wrap leading-relaxed overflow-x-auto select-all ltr-content" style="max-height: 480px;"></pre>
+            
+            <p class="text-[11px] text-slate-400 mt-3 text-center">
+              💡 اضغط على زر "نسخ التقرير" ثم الصق محتواه مباشرة في الخانات المقابلة داخل استمارة Test IO.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: AUTOMATED QUALITY AUDITOR & LINTER  -->
+    <!-- ========================================== -->
+    <div id="tab-checklist" class="tab-content space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-robot text-emerald-400"></i>
+            <span>الفاحص الآلي الذكي لتقارير الأخطاء والفيديو (Automated Quality Auditor)</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">يقوم النظام تلقائياً بقراءة وتحليل نص تقريرك وملف الفيديو ومقارنتهما بقواعد ومعايير قبول Test IO في أجزاء من الثانية!</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="syncGeneratorReportBtn" class="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-600 hover:opacity-90 text-white shadow-lg shadow-indigo-600/25 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <span>سحب التقرير من المولد وفحصه آلياً ⚡</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-Time Score Dashboard -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Score Meter Card -->
+        <div class="lg:col-span-4 glass-panel p-6 rounded-2xl border border-slate-800 text-center flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">درجة جودة التقرير الآلية</span>
+            <div id="autoScoreDisplay" class="text-6xl font-black text-white my-3 tracking-tight">0%</div>
+            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden my-3">
+              <div id="autoScoreProgress" class="bg-rose-500 h-full w-0 transition-all duration-500"></div>
+            </div>
+            <div class="mt-2">
+              <span id="autoScoreBadge" class="badge-pill bg-rose-500/20 text-rose-400 border border-rose-500/30">بانتظار إدخال التقرير</span>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-4 leading-relaxed border-t border-slate-800/80 pt-3">
+            💡 يتم حساب النتيجة آلياً عبر خوارزمية تطابق معايير الـ Acceptance الخاصة بقادة فرق (Team Leads) منصة Test IO.
+          </p>
+        </div>
+
+        <!-- Video Duration & File Inspector Card -->
+        <div class="lg:col-span-8 glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-film text-cyan-400"></i>
+                <span>فاحص فيديو الإثبات التلقائي (Automated Video Inspector)</span>
+              </h3>
+              <span class="text-[11px] text-slate-400">المسموح: 15 إلى 45 ثانية</span>
+            </div>
+
+            <!-- Drag & Drop Zone -->
+            <label id="videoDropzone" class="border-2 border-dashed border-slate-700 hover:border-indigo-500 p-5 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition bg-slate-900/50">
+              <i class="fa-solid fa-cloud-arrow-up text-2xl text-indigo-400 mb-2"></i>
+              <span class="text-xs font-bold text-slate-200">اختر أو اسحب ملف الفيديو هنا لفحصه (.mp4, .webm, .mov)</span>
+              <span class="text-[11px] text-slate-400 mt-1">يتم قياس المدة والأبعاد والوزن في المتصفح محلياً وفورياً بدون رفع</span>
+              <input type="file" id="auditVideoFile" accept="video/*" class="hidden">
+            </label>
+
+            <!-- Video Audit Result Output -->
+            <div id="videoAuditResult" class="hidden mt-4 space-y-3">
+              <div class="grid grid-cols-3 gap-3 text-center text-xs">
+                <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                  <span class="text-slate-400 block text-[10px]">اسم الملف</span>
+                  <strong id="videoFileName" class="text-white truncate block mt-0.5">-</strong>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                  <span class="text-slate-400 block text-[10px]">مدة الفيديو الفعلية</span>
+                  <strong id="videoDurationText" class="text-cyan-400 block mt-0.5">-</strong>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                  <span class="text-slate-400 block text-[10px]">الحجم والأبعاد</span>
+                  <strong id="videoSizeText" class="text-white block mt-0.5">-</strong>
+                </div>
+              </div>
+              <div id="videoVerdict"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Live Text Audit & Feedback Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Input Text Box (Left) -->
+        <div class="lg:col-span-6 space-y-3 glass-panel p-6 rounded-2xl border border-slate-800">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-align-left"></i>
+              <span>نص التقرير الخاضع للفحص الآلي:</span>
+            </label>
+            <span class="text-[11px] text-slate-400">يفحص أثناء الكتابة لحظياً</span>
+          </div>
+          <textarea id="auditReportInput" rows="14" placeholder="قم بلصق تقرير الخطأ هنا أو اضغط على زر 'سحب التقرير من المولد' بالأعلى..." class="w-full p-4 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 font-mono text-xs leading-relaxed ltr-content"></textarea>
+        </div>
+
+        <!-- Automated Criteria Checklist Feedback (Right) -->
+        <div class="lg:col-span-6 space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">نتائج الفحص والتدقيق الآلي المباشر:</span>
+            <span class="text-[11px] text-slate-400">يتم التحديث لحظياً</span>
+          </div>
+
+          <div id="autoChecksList" class="space-y-2.5">
+            <!-- Dynamic checks will be injected here via JavaScript -->
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center text-xs text-slate-400">
+              بانتظار إدخال تقرير للفحص...
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: EARNINGS CALCULATOR                 -->
+    <!-- ========================================== -->
+    <div id="tab-calculator" class="tab-content space-y-8">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-cyan-400"></i>
+            <span>حاسبة الأرباح التقديرية (Earnings Calculator)</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">احسب دخلك المتوقع أسبوعياً أو شهرياً بناءً على متوسط أسعار مكافآت Test IO لتقارير الأخطاء والـ Reproductions.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Controls -->
+        <div class="lg:col-span-7 space-y-4 glass-panel p-6 rounded-2xl border border-slate-800">
+          
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <div>
+              <div class="font-bold text-sm text-rose-400">Critical Bugs (أخطاء حرجة / Crash)</div>
+              <div class="text-xs text-slate-400">متوسط المكافأة: ~35$ لكل باج</div>
+            </div>
+            <input type="number" id="calcCritical" min="0" value="2" class="w-20 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-white text-center font-bold">
+          </div>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <div>
+              <div class="font-bold text-sm text-amber-400">High Severity Bugs (أخطاء عالية)</div>
+              <div class="text-xs text-slate-400">متوسط المكافأة: ~18$ لكل باج</div>
+            </div>
+            <input type="number" id="calcHigh" min="0" value="4" class="w-20 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-white text-center font-bold">
+          </div>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <div>
+              <div class="font-bold text-sm text-cyan-400">Medium Severity Bugs (أخطاء متوسطة)</div>
+              <div class="text-xs text-slate-400">متوسط المكافأة: ~10$ لكل باج</div>
+            </div>
+            <input type="number" id="calcMedium" min="0" value="5" class="w-20 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-white text-center font-bold">
+          </div>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <div>
+              <div class="font-bold text-sm text-slate-300">Low / Visual Bugs (أخطاء منخفضة أو بصرية)</div>
+              <div class="text-xs text-slate-400">متوسط المكافأة: ~4$ لكل باج</div>
+            </div>
+            <input type="number" id="calcLow" min="0" value="6" class="w-20 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-white text-center font-bold">
+          </div>
+
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <div>
+              <div class="font-bold text-sm text-emerald-400">Reproductions (تأكيد باجات الآخرين)</div>
+              <div class="text-xs text-slate-400">متوسط المكافأة: ~1.25$ لكل تأكيد سريع</div>
+            </div>
+            <input type="number" id="calcRepro" min="0" value="20" class="w-20 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-white text-center font-bold">
+          </div>
+
+        </div>
+
+        <!-- Total Display -->
+        <div class="lg:col-span-5 sticky top-28">
+          <div class="glass-panel p-8 rounded-2xl border border-emerald-500/30 bg-slate-900/90 text-center shadow-xl shadow-emerald-950/30">
+            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest block mb-2">إجمالي الأرباح التقديرية</span>
+            <div id="calcTotalOutput" class="text-5xl font-extrabold text-white my-3">$241.00</div>
+            <p class="text-xs text-slate-400 leading-relaxed mt-4">
+              💡 هذه الأرقام تقديرية ويمكن زيادتها بفضل سرعة اقتناص الدعوات وتأكيدات الـ Reproductions المتكررة في كل دورة اختبار.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: TOOLS, RECORDERS & TAX              -->
+    <!-- ========================================== -->
+    <div id="tab-tools" class="tab-content space-y-8">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-toolbox text-amber-400"></i>
+            <span>أدوات التسجيل، فحص السجلات، والاستمارة الضريبية</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">كل البرامج الموصى بها لتسجيل الشاشة، وطريقة سحب الـ Console Logs، وشرح ملء الاستمارة الضريبية W-8BEN لتجنب وقف السحب.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Tool 1: Screen Recorders -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-indigo-500">
+          <div class="flex items-center gap-2 text-indigo-400 mb-3">
+            <i class="fa-solid fa-video text-xl"></i>
+            <h3 class="font-bold text-white text-base">برامج تسجيل الشاشة المجانية</h3>
+          </div>
+          <div class="space-y-3 text-xs text-slate-300">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-white block mb-1">لأجهزة الكمبيوتر (PC / Mac):</strong>
+              <ul class="list-disc list-inside space-y-1 text-slate-400">
+                <li><strong class="text-indigo-300">ShareX</strong> (مجاني 100% وخفيف ومثالي لقص وتصوير الفيديو مباشرة).</li>
+                <li><strong class="text-indigo-300">OBS Studio</strong> (احترافي وبدون علامة مائية).</li>
+                <li><strong class="text-indigo-300">Windows Game Bar</strong> (مدمج في الويندوز: اختصار <code>Win + Alt + R</code>).</li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <strong class="text-white block mb-1">لهواتف الموبايل:</strong>
+              <ul class="list-disc list-inside space-y-1 text-slate-400">
+                <li>المسجل المدمج في نظام Android و iOS.</li>
+                <li><strong class="text-indigo-300">AZ Screen Recorder</strong> أو <strong class="text-indigo-300">XRecorder</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 2: Console Logs Guide -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-cyan-500">
+          <div class="flex items-center gap-2 text-cyan-400 mb-3">
+            <i class="fa-solid fa-terminal text-xl"></i>
+            <h3 class="font-bold text-white text-base">استخراج الـ Console Logs</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3">
+            في الأخطاء الوظيفية الكبيرة (Critical / High)، إرفاق سكرين شوت لسجل المتصفح يضمن لك قبول الباج بنسبة 100%:
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300 space-y-1 ltr-content">
+            <div>1. Press F12 or Right Click > Inspect</div>
+            <div>2. Switch to 'Console' Tab</div>
+            <div>3. Look for RED error messages (Uncaught, HTTP 500)</div>
+            <div>4. Take a clear screenshot of the error</div>
+          </div>
+        </div>
+
+        <!-- Tool 3: Tax Form W-8BEN -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-amber-500">
+          <div class="flex items-center gap-2 text-amber-400 mb-3">
+            <i class="fa-solid fa-file-invoice-dollar text-xl"></i>
+            <h3 class="font-bold text-white text-base">الاستمارة الضريبية W-8BEN</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3">
+            يطلب منك الموقع ملء استمارة <strong class="text-white">W-8BEN</strong> الإلكترونية للإعفاء من اقتطاع الضرائب الأمريكية:
+          </p>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="text-amber-400 font-semibold">خطوات ملئها في دقيقة:</div>
+            <ul class="list-disc list-inside space-y-1 text-slate-400">
+              <li>اختر أنك <strong class="text-white">Individual</strong> (فرد) ولست شركة.</li>
+              <li>اختر أنك <strong class="text-white">Non-US Citizen</strong> (لست مواطناً أمريكياً).</li>
+              <li>اكتب اسمك وعنوانك المطابق لبطاقة الهوية وبلد إقامتك.</li>
+              <li>في خانة التوقيع: اكتب اسمك باللغة الإنجليزية كما سجلت.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: PRO TRICKS                          -->
+    <!-- ========================================== -->
+    <div id="tab-tricks" class="tab-content space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
+            <span>أسرار وتريكات المختبرين المحترفين</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">طرق ذكية وسريعة لاصطياد الأخطاء الحرجة قبل غيرك ورفع تقييم حسابك في المنصة.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button data-trick-filter="all" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 text-white">الكل</button>
+          <button data-trick-filter="functional" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">أخطاء وظيفية</button>
+          <button data-trick-filter="visual" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">أخطاء بصرية</button>
+          <button data-trick-filter="devtools" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">DevTools</button>
+          <button data-trick-filter="rank" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">أسرار التقييم</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Trick 1 -->
+        <div class="trick-card glass-card p-6 rounded-2xl flex flex-col justify-between" data-trick-category="functional">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-pill bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs">Functional</span>
+              <i class="fa-solid fa-rotate text-indigo-400"></i>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">تدوير شاشة الهاتف (Screen Rotation)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              أثناء ملء استمارة تسجيل، أو أثناء تشغيل فيديو، أو في خطوة إدخال بطاقة الدفع: قم بقلب الشاشة من عمودي (Portrait) إلى أفقي (Landscape).
+            </p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 text-[11px] text-amber-300 border border-slate-800">
+            🔥 النتيجة المتكررة: مسح البيانات المدخلة تلقائياً أو انهيار التطبيق (Crash).
+          </div>
+        </div>
+
+        <!-- Trick 2 -->
+        <div class="trick-card glass-card p-6 rounded-2xl flex flex-col justify-between" data-trick-category="functional">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-pill bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs">Functional</span>
+              <i class="fa-solid fa-code text-cyan-400"></i>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">اختبار الحدود القصوى (Boundary Limits)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              في خانات الأسماء والعناوين، ضع نصوصاً فائقة الطول (300-500 حرف). وفي خانات الكميات، جرب كتابة أرقام سالبة مثل <code>-1</code> أو أصفاراً أو أرقاماً ضخمة جداً <code>999999</code>.
+            </p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 text-[11px] text-amber-300 border border-slate-800">
+            🔥 النتيجة المتكررة: كسر التنسيق أو أخطاء حسابية في السعر النهائي لسلة الشراء.
+          </div>
+        </div>
+
+        <!-- Trick 3 -->
+        <div class="trick-card glass-card p-6 rounded-2xl flex flex-col justify-between" data-trick-category="devtools">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-pill bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs">DevTools</span>
+              <i class="fa-solid fa-wifi text-emerald-400"></i>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">إبطاء سرعة الإنترنت (Network Throttling)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              من أدوات المطور (F12) ⬅️ Network ⬅️ غير السرعة إلى <code>Slow 3G</code> أو <code>Offline</code> وجرب الضغط على زر الدفع أو تسجيل الدخول.
+            </p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 text-[11px] text-amber-300 border border-slate-800">
+            🔥 النتيجة المتكررة: تجمد الواجهة دون إظهار لودر (Spinner) أو إرسال الطلب مرتين عند تكرار النقر!
+          </div>
+        </div>
+
+        <!-- Trick 4 -->
+        <div class="trick-card glass-card p-6 rounded-2xl flex flex-col justify-between" data-trick-category="visual">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-pill bg-purple-500/20 text-purple-400 border border-purple-500/30 text-xs">Visual</span>
+              <i class="fa-solid fa-language text-purple-400"></i>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">التبديل بين اللغات (Localization)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              إذا كان الموقع يدعم لغات متعددة، جرب التبديل إلى اللغة الألمانية أو الفرنسية، أو العربية.
+            </p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 text-[11px] text-amber-300 border border-slate-800">
+            🔥 النتيجة المتكررة: تداخل الكلمات الطويلة مع الأزرار وتشوّه محاذاة العناصر (Text Overlap).
+          </div>
+        </div>
+
+        <!-- Trick 5 -->
+        <div class="trick-card glass-card p-6 rounded-2xl flex flex-col justify-between" data-trick-category="functional">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-pill bg-rose-500/20 text-rose-400 border border-rose-500/30 text-xs">Functional</span>
+              <i class="fa-solid fa-arrow-left text-amber-400"></i>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">استخدام زر الرجوع (Browser Back Button)</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              أثناء التنقل بين خطوات الدفع (Checkout Steps) أو بعد إتمام تسجيل الدخول مباشرة، اضغط على زر "Back" في المتصفح.
+            </p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 text-[11px] text-amber-300 border border-slate-800">
+            🔥 النتيجة المتكررة: ظهور صفحة الخطأ 404 أو تكرار خصم الرصيد أو خروج الحساب.
+          </div>
+        </div>
+
+        <!-- Trick 6 -->
+        <div class="trick-card glass-card p-6 rounded-2xl flex flex-col justify-between" data-trick-category="rank">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-pill bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs">Rank Boost</span>
+              <i class="fa-solid fa-trophy text-amber-400"></i>
+            </div>
+            <h4 class="text-base font-bold text-white mb-2">سر الحفاظ على تقييم Expert</h4>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              لا ترسل أبداً باج مشكوك فيه أو بسيط جداً وأنت غير متأكد من النطاق. تقرير واحد مرفوض (Rejected) يخفض تقييمك أكثر مما يرفعه تقريران مقبولان!
+            </p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-900 text-[11px] text-amber-300 border border-slate-800">
+            🔥 الاستراتيجية: الجودة أولاً، والاستفادة من تأكيدات الـ Reproductions المضمونة 100%.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 7: DISPUTE BUILDER                     -->
+    <!-- ========================================== -->
+    <div id="tab-dispute" class="tab-content space-y-8">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-envelope-open-text text-indigo-400"></i>
+            <span>مولد رسائل الاعتراض المهذبة (Dispute Builder)</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">إذا قام قائد الفريق (Team Lead) برفض تقريرك بالخطأ، استخدم هذه الأداة لصياغة رسالة اعتراض احترافية ومقنعة باللغة الإنجليزية.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Form Inputs -->
+        <div class="lg:col-span-6 space-y-4 glass-panel p-6 rounded-2xl border border-slate-800">
+          <div>
+            <label class="text-xs font-bold text-slate-300 block mb-1">اسم قائد الفريق (Team Lead Name):</label>
+            <input type="text" id="disputeTlName" placeholder="e.g. John / Team Lead" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-300 block mb-1">التوقيت في الفيديو الذي يثبت الخطأ (Timestamp):</label>
+            <input type="text" id="disputeTimestamp" placeholder="e.g. 00:18" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-300 block mb-1">سبب صحة التقرير (Proof Reason):</label>
+            <input type="text" id="disputeReason" placeholder="e.g. the error occurs consistently when following exact steps and falls inside the defined checkout scope" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-300 block mb-1">أثر المشكلة على تجربة المستخدم (User Impact):</label>
+            <input type="text" id="disputeImpact" placeholder="e.g. the user cannot complete the purchase or select their desired shipping address" class="w-full px-3 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 ltr-content">
+          </div>
+        </div>
+
+        <!-- Generated Message Preview -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="glass-panel p-6 rounded-2xl border border-indigo-500/30 bg-slate-900/90 shadow-xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">الرسالة الناتجة (Ready to send)</span>
+              <button id="copyDisputeBtn" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition flex items-center gap-1.5">
+                <i class="fa-regular fa-copy"></i>
+                <span>نسخ الرسالة</span>
+              </button>
+            </div>
+            <pre id="disputeOutput" class="mt-4 p-4 rounded-xl bg-slate-950 border border-slate-800/80 text-cyan-300 font-mono text-xs whitespace-pre-wrap leading-relaxed select-all ltr-content"></pre>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 8: QA GLOSSARY                         -->
+    <!-- ========================================== -->
+    <div id="tab-glossary" class="tab-content space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-book-bookmark text-cyan-400"></i>
+            <span>قاموس مصطلحات فحص البرمجيات و Test IO</span>
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">ابحث في أهم المصطلحات التقنية التي ستواجهها أثناء العمل داخل المنصة.</p>
+        </div>
+
+        <!-- Search bar -->
+        <div class="relative w-full sm:w-72">
+          <input type="text" id="glossarySearch" placeholder="ابحث عن أي مصطلح..." class="w-full pl-3 pr-9 py-2 text-sm rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+          <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-500 text-xs"></i>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-indigo-400">Reproduction</h4>
+            <span class="badge-pill bg-indigo-500/20 text-indigo-300 text-[10px]">مهم جداً</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">إعادة تكرار وتأكيد خطأ اكتشفه مختبر آخر على جهازك ونظام تشغيلك للحصول على مكافأة مالية سريعة بدون كتابة تقرير كامل.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-cyan-400">Known Bugs</h4>
+            <span class="badge-pill bg-cyan-500/20 text-cyan-300 text-[10px]">تجنب الرفض</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">قائمة الأخطاء التي يعرفها فريق التطوير مسبقاً. إذا بلغت عن أي خطأ مسجل فيها فسيتم رفض تقريرك فوراً باعتباره مكرراً.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-rose-400">Crash</h4>
+            <span class="badge-pill bg-rose-500/20 text-rose-300 text-[10px]">Critical</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">الانهيار التام للتطبيق أو الموقع (الإغلاق الإجباري المفاجئ، أو شاشة بيضاء بالكامل تمنع التفاعل) وهي الأخطاء الأعلى سعراً.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-amber-400">Workaround</h4>
+            <span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px]">Severity</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">حل بديل يستطيع المستخدم اتباعه للوصول لنفس الهدف رغم وجود الخطأ. وجود حل بديل ينزل تصنيف الخطأ من High إلى Medium.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-emerald-400">Team Lead (TL)</h4>
+            <span class="badge-pill bg-emerald-500/20 text-emerald-300 text-[10px]">المراجع</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">قائد فريق الاختبار المسؤول عن مراجعة تقاريرك وقبولها أو طلب تعديلها أو رفضها، والتواصل معه يكون في قسم الشات والاعتراضات.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-purple-400">Console Log</h4>
+            <span class="badge-pill bg-purple-500/20 text-purple-300 text-[10px]">DevTools</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">سجل أخطاء الجافاسكريبت والشبكة في المتصفح (F12 > Console). إرفاق سكرين شوت له في أخطاء الـ Functional يقوي تقريرك بشدة.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-indigo-400">Scope</h4>
+            <span class="badge-pill bg-indigo-500/20 text-indigo-300 text-[10px]">الحدود</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">نطاق الاختبار المحدد من العميل، ويشمل الصفحات والميزات المسموح فحصها، مقابل الـ Out of Scope الممنوع الإبلاغ عنه.</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-cyan-400">Viewport</h4>
+            <span class="badge-pill bg-cyan-500/20 text-cyan-300 text-[10px]">الأبعاد</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">مساحة العرض المرئية للشاشة (عرض وارتفاع البكسل)، ومهم ذكرها في أخطاء التصميم المتجاوب مثل (Mobile Viewport < 768px).</p>
+        </div>
+
+        <div class="glossary-item glass-card p-5 rounded-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-white text-sm font-mono text-amber-400">Bug Fix Confirmation</h4>
+            <span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px]">ربح سريع</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">مهمة مدفوعة بمبلغ ثابت ومضمون للتحقق مما إذا كان الخطأ القديم الذي أصلحه المطور قد تم حله بنجاح أم ما زال موجوداً.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toast">تم النسخ بنجاح! 📋</div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-semibold text-slate-400">Test IO Master Hub</span>
+        <span>— بوابة التدريب والأدوات لمهندسي فحص البرمجيات</span>
+      </div>
+      <div>
+        <span>جاهز للاستخدام أوفلاين في مجلد: </span>
+        <code class="text-indigo-400 font-mono">E:\TEST IO</code>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

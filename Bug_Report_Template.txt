@@ -1,0 +1,46 @@
+================================================================================
+                    TEST IO - BUG REPORT TEMPLATE
+================================================================================
+
+TITLE FORMAT:
+[Where/Page] - [What happens] + [Under which condition]
+Example: [Cart Page] - "Proceed to Checkout" button is unclickable when coupon is applied
+
+--------------------------------------------------------------------------------
+ENVIRONMENT:
+Device: [e.g. Samsung Galaxy S23 / iPhone 14 / PC Laptop]
+OS Version: [e.g. Android 13 / iOS 17.2 / Windows 11]
+Browser / App Version: [e.g. Chrome 120.0 / App v2.4.1]
+Network: [WiFi / 4G / 5G]
+
+--------------------------------------------------------------------------------
+STEPS TO REPRODUCE:
+1. Navigate to: [Insert URL or launch app]
+2. Click on [Specify exact button/link]
+3. Enter [Input value] in [Field name]
+4. Click on [Action button]
+5. Observe the result
+
+--------------------------------------------------------------------------------
+EXPECTED RESULT:
+[What should happen according to logic and user experience]
+
+--------------------------------------------------------------------------------
+ACTUAL RESULT:
+[What actually happens on the screen, error messages, freeze, etc.]
+
+--------------------------------------------------------------------------------
+SEVERITY:
+[ ] Critical   (Crash, freeze, payment broken, blocked journey)
+[ ] High       (Major feature broken with NO workaround)
+[ ] Medium     (Feature broken BUT workaround exists)
+[ ] Low        (Minor functional inconvenience)
+
+--------------------------------------------------------------------------------
+PROOF CHECKLIST:
+[ ] Video duration is between 15 - 45 seconds
+[ ] Time and Date are clearly visible (taskbar / status bar)
+[ ] Touches / Mouse pointer clicks are shown
+[ ] Visual bugs have red rectangle / arrow highlighting the issue
+[ ] Checked "Known Bugs" and existing reports to prevent duplicates
+================================================================================
