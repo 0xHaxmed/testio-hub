@@ -517,111 +517,142 @@
       <div class="space-y-4">
         
         <!-- Q1 -->
-        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 1</span>
-            <span class="text-xs text-slate-400">نوع المرفق للأخطاء الوظيفية</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 1 (Page 1 / 6)</span>
+            <span class="badge-pill bg-emerald-500/20 text-emerald-400 text-[10px]">3 إجابات صحيحة</span>
           </div>
-          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
-            Q: What attachment is required when reporting a Functional Bug?
+          <h3 class="text-sm sm:text-base font-bold text-white ltr-content font-mono leading-relaxed">
+            Q1: Which of the following are general attachment requirements on the platform? *(3 correct answers)
           </h3>
-          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
-            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
-            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">A screencast (video)</strong>
+          <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs space-y-2">
+            <span class="text-emerald-400 font-bold block mb-1">✅ الإجابات الصحيحة الثلاث:</span>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">A new attachment must be created for each bug report or reproduction.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">Attachments must show enough information to prove the bug.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">Attachments must be in the language required by the Test Cycle.</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            💡 الأخطاء الوظيفية تتطلب دائماً فيديو شاشة (Screencast) لأنها تتضمن إجراءً وخطوات لا يمكن للصور الثابتة توضيح أسبابها.
-          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            💡 <strong>التفسير:</strong> المرفقات يجب أن تُنشأ جديدة لكل تقرير (ممنوع إعادة استخدام مرفقات سابقة)، ويجب أن توفر دليلاً كافياً لإثبات العيب، وأن تكون باللغة المطلوبة في الدورة. خيار "ظهور الرابط اختياري" مرفوض لأن الرابط إلزامي.
+          </div>
         </div>
 
         <!-- Q2 -->
-        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 2</span>
-            <span class="text-xs text-slate-400">أقصى مدة لفيديو تقرير الخطأ</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 2 (Page 2 / 6)</span>
+            <span class="badge-pill bg-indigo-500/20 text-indigo-400 text-[10px]">فيديو الشاشة</span>
           </div>
-          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
-            Q: What is the maximum duration for a Bug Report screencast?
+          <h3 class="text-sm sm:text-base font-bold text-white ltr-content font-mono leading-relaxed">
+            Q2: When is a screencast usually required?
           </h3>
-          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
-            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
-            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">60 seconds (1 minute)</strong>
+          <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+              <span class="text-white font-mono font-extrabold text-sm px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">When an action is needed to trigger the bug or a process needs to be shown.</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            💡 الحد الأقصى لفيديو تقرير الخطأ هو 60 ثانية، ويجب أن يقتصر على الخطوة الأخيرة التي تسبب المشكلة فقط.
-          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            💡 <strong>التفسير:</strong> الفيديو (Screencast) إلزامي متى ما تطلب الخطأ إجراءً حركياً (Action) أو تسلسلاً زمنياً لا يمكن للصورة الثابتة إظهار سببه الجذري.
+          </div>
         </div>
 
         <!-- Q3 -->
-        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 3</span>
-            <span class="text-xs text-slate-400">أقصى مدة لفيديو إعادة الإنتاج</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 3 (Page 3 / 6)</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-[10px]">صيغة الملف</span>
           </div>
-          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
-            Q: What is the maximum time for a screencast attached to a Reproduction or User Story?
+          <h3 class="text-sm sm:text-base font-bold text-white ltr-content font-mono leading-relaxed">
+            Q3: What file format must a screencast use?
           </h3>
-          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
-            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
-            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">15 seconds</strong>
+          <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+              <span class="text-white font-mono font-extrabold text-sm px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">MP4</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            💡 في الـ Reproduction مطلوب إظهار الحركة الأخيرة التي تثبت تكرار الخطأ فقط، لذلك الحد الأقصى 15 ثانية فقط.
-          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            💡 <strong>التفسير:</strong> صيغة الفيديو الوحيدة المعتمدة رسمياً في منصة Test IO هي <strong>MP4</strong> (بترميز H.264).
+          </div>
         </div>
 
         <!-- Q4 -->
-        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 4</span>
-            <span class="text-xs text-slate-400">صيغة ملف الفيديو الإلزامية</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 4 (Page 4 / 6)</span>
+            <span class="badge-pill bg-amber-500/20 text-amber-400 text-[10px]">مدة الفيديو</span>
           </div>
-          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
-            Q: What video format is strictly required for screencasts in Test IO?
+          <h3 class="text-sm sm:text-base font-bold text-white ltr-content font-mono leading-relaxed">
+            Q4: Which statement about screencast length is correct?
           </h3>
-          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
-            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
-            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">.MP4 (with H.264 codec preferred)</strong>
+          <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+              <span class="text-white font-mono font-extrabold text-sm px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Screencasts should be as short as possible and as long as necessary, but should not be longer than 60 seconds for Bug Reports.</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            💡 لا تقبل المنصة صيغ MOV أو AVI أو MKV. يجب أن يكون ملف الفيديو دائماً MP4 بحجم أقل من 25MB.
-          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            💡 <strong>التفسير:</strong> القاعدة الرسمية تنص على أن يكون الفيديو قصيراً قدر الإمكان وطويلاً بقدر الحاجة فقط، وبحد أقصى لا يتجاوز 60 ثانية لتقارير الأخطاء.
+          </div>
         </div>
 
         <!-- Q5 -->
-        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 5</span>
-            <span class="text-xs text-slate-400">تسجيل الصوت وقص الفيديو</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 5 (Page 5 / 6)</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-[10px]">كراش التطبيقات</span>
           </div>
-          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
-            Q: Are testers allowed to edit screencasts by cutting middle parts or fast-forwarding?
+          <h3 class="text-sm sm:text-base font-bold text-white ltr-content font-mono leading-relaxed">
+            Q5: Which of the following are required when reporting an app crash? *(2 correct answers)
           </h3>
-          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
-            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
-            <strong class="text-white font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 ml-2">No, it is strictly prohibited</strong>
+          <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs space-y-2">
+            <span class="text-emerald-400 font-bold block mb-1">✅ الإجابتان الصحيحتان:</span>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">A crash log file must be attached.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">The screencast and crash log must show the same crash and matching timings.</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            💡 ممنوع القص من المنتصف وممنوع تسريع الفيديو نهائياً. يجب أن يكون التسجيل متواصلاً (In one go) مع كتم الصوت.
-          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            💡 <strong>التفسير:</strong> في تقارير كراش التطبيقات، ملف سجل الانهيار (Crash Log) إلزامي مع تطابق التوقيت الزمني بين الفيديو وسجل الانهيار.
+          </div>
         </div>
 
         <!-- Q6 -->
-        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 6</span>
-            <span class="text-xs text-slate-400">انهيار تطبيقات الموبايل (App Crashes)</span>
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 6 (Page 6 / 6)</span>
+            <span class="badge-pill bg-pink-500/20 text-pink-400 text-[10px]">لقطات الشاشة</span>
           </div>
-          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
-            Q: What additional mandatory attachment must accompany an App Crash report?
+          <h3 class="text-sm sm:text-base font-bold text-white ltr-content font-mono leading-relaxed">
+            Q6: Which of the following are screenshot-specific rules? *(2 correct answers)
           </h3>
-          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
-            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
-            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">A Crash Log (with coherent timings)</strong>
+          <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs space-y-2">
+            <span class="text-emerald-400 font-bold block mb-1">✅ الإجابتان الصحيحتان:</span>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">The bug should be highlighted on the screenshot.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-400"></i>
+              <span class="text-white font-mono font-semibold">The screenshot must be in JPG or PNG format.</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            💡 تقارير الكراش في التطبيقات يُشترط معها ملف Crash Log إلزامي يتطابق توقيته مع وقت حدوث الانهيار في الفيديو.
-          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            💡 <strong>التفسير:</strong> شروط لقطات الشاشة الأساسية: أن تكون بصيغة JPG أو PNG، وأن يتم تمييز وتحديد مكان الخطأ ببرواز أو سهم أحمر (Highlight).
+          </div>
         </div>
 
       </div>
