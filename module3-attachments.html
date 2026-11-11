@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الموديول الثالث: مرفقات تقارير الأخطاء والفيديو (Bug Report Attachments) | Test IO Master Hub</title>
+  <meta name="description" content="الدليل الشامل لاجتياز الموديول الثالث في أكاديمية Test IO: متطلبات المرفقات، تسجيل الفيديوهات، لقطات الشاشة، وحل الكويز والمهمة العملية بنسبة 100%.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎥</text></svg>">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-rose-500 selection:text-white">
+
+  <!-- Top Navbar -->
+  <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Back to Hub & Navigation -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition text-xs font-semibold">
+          <i class="fa-solid fa-arrow-right"></i>
+          <span>الرجوع للبوابة الرئيسية</span>
+        </a>
+        <div class="hidden sm:block h-6 w-px bg-slate-800"></div>
+        <div class="hidden sm:flex items-center gap-2">
+          <span class="text-base font-bold text-white">Test IO Academy</span>
+          <span class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-rose-500/20 text-rose-400 border border-rose-500/30">Module #3</span>
+        </div>
+      </div>
+
+      <!-- Quick Links to Other Modules -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="quiz-bug-types.html" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-slate-700/80 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span class="hidden md:inline">الموديول 1:</span>
+          <span>Bug Types</span>
+        </a>
+        <a href="module2-how-to-find-bugs.html" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-700/80 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-bullseye"></i>
+          <span class="hidden md:inline">الموديول 2:</span>
+          <span>دورة الاختبار</span>
+        </a>
+        <a href="#practical-task" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-rose-600 hover:bg-rose-500 text-white shadow-md shadow-rose-600/20 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-video"></i>
+          <span>المهمة العملية والكويز</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="relative overflow-hidden pt-12 pb-10 border-b border-slate-800/60 bg-gradient-to-b from-rose-950/20 via-slate-950 to-slate-950">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold">
+          <i class="fa-solid fa-paperclip"></i>
+          <span>Exploratory Testing Course — Module #3: Bug Report Attachments</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold">
+          <i class="fa-solid fa-list-check"></i>
+          <span>يتضمن مهمتين: Attachment Quiz + Attachment Practical Task</span>
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+        دليل مرفقات الأخطاء واحتراف <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-rose-200">تسجيل الفيديوهات والشاشات</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mb-6">
+        المرفقات هي الدليل القاطع على حدوث الخطأ (Proof of Bug). تعلم المعايير الصارمة لمنصة Test IO في قبول الفيديوهات والصور، تجنب أسباب الرفض الشائعة، واجتز الكويز والمهمة العملية بنجاح.
+      </p>
+
+      <!-- Module Tasks Overview Box -->
+      <div class="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-right mb-8">
+        
+        <div class="p-4 rounded-2xl bg-slate-900/90 border border-rose-500/30 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">المهمة 1 (Task 1)</span>
+            <i class="fa-solid fa-clipboard-question text-rose-400 text-lg"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white">Attachment Quiz (كويز المرفقات)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            اختبار لقياس فهمك لقواعد المرفقات (الصيغ، المدة الزمنية، متى فيديو ومتى صورة، وشروط الخصوصية). تجد أسفله كافة الإجابات النموذجية.
+          </p>
+          <a href="https://tester.test.io/course_registrations/16534017/course_pages/101" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rose-400 hover:text-rose-300 font-bold underline pt-1">
+            <span>الانتقال لرابط الكويز في المنصة ↗</span>
+          </a>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-900/90 border border-indigo-500/30 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-indigo-500/20 text-indigo-400 text-xs font-bold">المهمة 2 (Task 2)</span>
+            <i class="fa-solid fa-video text-indigo-400 text-lg"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white">Attachment Practical Task (المهمة العملية)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            تسجيل فيديو شاشة حقيقي (Screencast) يعيد إنتاج الخطوات المطلوبة وفقاً للمعايير الصارمة (MP4، أقل من 60 ثانية، بدون صوت، الشاشة كاملة مع الرابط).
+          </p>
+          <a href="https://tester.test.io/course_registrations/16534019/course_pages/118" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-bold underline pt-1">
+            <span>الانتقال للمهمة العملية في المنصة ↗</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Quick Nav Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="#rules-of-thumb" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-rose-400"></i>
+          <span>1. متى ترفع فيديو ومتى ترفع صورة؟</span>
+        </a>
+        <a href="#golden-rules" class="px-4 py-2 text-xs font-bold rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white shadow-lg transition flex items-center gap-2">
+          <i class="fa-solid fa-star"></i>
+          <span>2. القواعد الذهبية الـ 10 للمرفقات</span>
+        </a>
+        <a href="#practical-guide" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-solid fa-play text-indigo-400"></i>
+          <span>3. خطوات تنفيذ المهمة العملية (Screencast)</span>
+        </a>
+        <a href="#quiz-prep" class="px-4 py-2 text-xs font-bold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition flex items-center gap-2">
+          <i class="fa-solid fa-question text-emerald-400"></i>
+          <span>4. بنك أسئلة وحلول الكويز</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 flex-1 w-full">
+
+    <!-- ======================================================== -->
+    <!-- SECTION 1: SCREENSHOT OR SCREENCAST?                     -->
+    <!-- ======================================================== -->
+    <section id="rules-of-thumb" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-rose-400 uppercase tracking-widest block mb-1">القاعدة الأساسية (Rule of Thumb)</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-scale-balanced text-rose-400"></i>
+            <span>فيديو أم لقطة شاشة؟ متى تختار كل منهما؟</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Screencast Card -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-indigo-500 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-indigo-500/20 text-indigo-400 text-xs font-bold">فيديو شاشة (Screencast)</span>
+            <i class="fa-solid fa-video text-indigo-400 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">إلزامي للأخطاء الوظيفية (Functional Bugs)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            عندما يتطلب حدوث الخطأ <strong>إجراءً تفاعلياً (Action)</strong> من المستخدم أو عملية متتالية (مثل الضغط على زر، ملء نموذج، فلترة أسعار، أو إضافة منتج لسلة التسوق). الصور الثابتة لا يمكنها إثبات السبب الجذري، لذلك <strong class="text-indigo-400">الأخطاء الوظيفية تتطلب دائماً فيديو MP4!</strong>
+          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-bold text-indigo-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-check"></i>
+              <span>أمثلة تحتاج فيديو حتماً:</span>
+            </div>
+            <div>• زر لا يستجيب أو يعطي رسالة خطأ عند الضغط عليه.</div>
+            <div>• تعطل الفلتر أو البحث.</div>
+            <div>• انهيار التطبيق المفاجئ (App Crash) + إرفاق Crash Log.</div>
+            <div>• مشاكل التفاعل عبر الكيبورد (Keyboard bugs).</div>
+          </div>
+        </div>
+
+        <!-- Screenshot Card -->
+        <div class="glass-card p-6 rounded-2xl border-t-4 border-pink-500 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-pink-500/20 text-pink-400 text-xs font-bold">لقطة شاشة (Screenshot)</span>
+            <i class="fa-solid fa-camera text-pink-400 text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">كافية للأخطاء البصرية والمحتوى (Visual & Content)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            عندما تكون طبيعة العطل <strong>ثابتة (Static GUI)</strong> وظاهرة مباشرة على الشاشة دون الحاجة لتتبع حركة أو تفاعل مستمر. لقطة الشاشة الثابتة هنا أفضل وأسرع للفحص من الفيديو.
+          </p>
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+            <div class="font-bold text-pink-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-check"></i>
+              <span>أمثلة تكفيها لقطة شاشة:</span>
+            </div>
+            <div>• تداخل النصوص مع الأزرار أو الصور (Overlap).</div>
+            <div>• نصوص مقطوعة خارج حدود الإطار (Truncated Text).</div>
+            <div>• صورة مكسورة أو غير ظاهرة (Broken Image Placeholder).</div>
+            <div>• نصوص غير مترجمة في واجهة التطبيق (Missing translation).</div>
+            <div class="text-amber-400 font-bold pt-1">⚠️ شرط إلزامي: تمييز الخطأ بمربع أحمر (Highlight).</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Critical Notice: Attachments do NOT replace text -->
+      <div class="p-4 rounded-2xl bg-amber-950/30 border border-amber-500/40 text-xs text-slate-300 flex items-start gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base shrink-0 mt-0.5"></i>
+        <div>
+          <strong class="text-amber-300 block mb-0.5">تنبيه حاسم من أكاديمية Test IO:</strong>
+          المرفقات (الفيديو والصور) <strong>لا تغني إطلاقاً عن الشرح النصي</strong> للخطوات والنتائج في تقريرك. المرفقات هي "إثبات مرئي" ودليل لصحة كلامك، ويجب أن تتطابق الخطوات المكتوبة مع ما يظهر في المرفق بنسبة 100%.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 2: THE 10 GOLDEN ATTACHMENT RULES                -->
+    <!-- ======================================================== -->
+    <section id="golden-rules" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-rose-400 uppercase tracking-widest block mb-1">معايير القبول والرفض</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-star text-rose-400"></i>
+            <span>القواعد الذهبية الـ 10 لمرفقات Test IO (Strict Guidelines)</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Rule 1: Formats -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">1</span>
+            <span>صيغ الملفات المقبولة (File Formats):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            الفيديوهات <strong>يجب أن تكون بصيغة MP4 فقط!</strong> (إذا كنت تستخدم iPhone أو Mac سجل بصيغة MOV ثم حولها لـ MP4 عبر HandBrake أو محول مجاني). لقطات الشاشة يجب أن تكون <strong>JPG أو PNG</strong>.
+          </p>
+        </div>
+
+        <!-- Rule 2: Limits -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">2</span>
+            <span>الحد الأقصى للحجم والوقت:</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            • الحد الأقصى لحجم أي مرفق: <strong class="text-white font-mono">25 MB</strong>.<br>
+            • الحد الأقصى لمدة فيديو التقرير (Bug Report): <strong class="text-rose-400 font-mono">60 ثانية (دقيقة واحدة)</strong>.<br>
+            • الحد الأقصى لمدة فيديو إعادة الإنتاج (Reproductions / User Stories): <strong class="text-rose-400 font-mono">15 ثانية فقط!</strong>
+          </p>
+        </div>
+
+        <!-- Rule 3: Single Take -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">3</span>
+            <span>التسجيل في لقطة واحدة (In One Go):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>ممنوع إيقاف الفيديو مؤقتاً (Pause) أو قص أجزاء من المنتصف (No middle cuts)!</strong> إذا كان الفيديو طويلاً يُسمح فقط بقص البداية أو النهاية. كما يُمنع تماماً تسريع الفيديو (Fast Forward).
+          </p>
+        </div>
+
+        <!-- Rule 4: No Noise -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">4</span>
+            <span>كتم المايكروفون ومنع الضوضاء (No Audio):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            قبل بدء التسجيل، <strong>أغلق تسجيل الصوت في إعدادات الأداة</strong> لتجنب تسجيل أي ضوضاء محيطة (صوت تلفزيون، أطفال، حيوانات أليفة، أو أحاديث جانبية) تؤدي لرفض التقرير.
+          </p>
+        </div>
+
+        <!-- Rule 5: Full Screen & URL -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">5</span>
+            <span>تسجيل كامل الشاشة وظهور الرابط (URL):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            سجل الشاشة بالكامل دون اقتصاص الحواف. في اختبارات مواقع الويب، <strong>يجب أن يكون شريط العنوان (URL bar) ظاهراً بوضوح</strong> لإثبات بيئة الاختبار ورابط الصفحة المعطلة.
+          </p>
+        </div>
+
+        <!-- Rule 6: Highlighting Screenshots -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">6</span>
+            <span>تحديد الخطأ في الصور (Highlighting):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            في لقطات الشاشة، <strong>يجب وضع إطار أو سهم أحمر حول مكان العيب</strong> (الزر المكسور أو النص المتداخل). لا ترفع لقطة شاشة مجردة تجعل المراجع يبحث عن المشكلة بنفسه.
+          </p>
+        </div>
+
+        <!-- Rule 7: Language Consistency -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">7</span>
+            <span>تطابق لغة النظام مع لغة الدورة:</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            إذا كانت دورة الاختبار باللغة الإنجليزية (وهو الغالب)، يجب أن تكون لغة المتصفح والنظام ورسائل النظام باللغة الإنجليزية في المرفقات لضمان قبولها.
+          </p>
+        </div>
+
+        <!-- Rule 8: PII & Blur -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">8</span>
+            <span>إخفاء البيانات الشخصية (Blurring PII):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            يمكنك تغبيش بياناتك الشخصية (البوك مارك، الإيميل، كلمات السر) باستخدام أدوات احترافية (مثل Clipchamp). <strong>ممنوع استخدام الشخبطة اليدوية بالقلم (No sketchy/hand-drawn lines)</strong> ويجب أن يظل الرابط وعناصر الموقع ظاهرة.
+          </p>
+        </div>
+
+        <!-- Rule 9: Streaming Devices (TVs) -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">9</span>
+            <span>قواعد أجهزة التلفزيون والبث (Streaming/TV):</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            شاشة التلفزيون كاملة في إضاءة جيدة، مع <strong>ظهور ريموت التلفزيون بالكامل في يدك أثناء الضغط عليه</strong>. يُمنع تصوير أقدام أو فوضى الغرفة.
+          </p>
+        </div>
+
+        <!-- Rule 10: App Crash & Keyboard -->
+        <div class="glass-panel p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/20 flex items-center justify-center font-mono">10</span>
+            <span>كراش التطبيقات ومشاكل الكيبورد:</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            • في انهيار التطبيقات (Crash): <strong>ملف الـ Crash Log إلزامي</strong> مع تطابق توقيت الفيديو مع توقيت سجل الانهيار.<br>
+            • أخطاء الكيبورد: يجب إظهار مدخلات المفاتيح بوضوح على الشاشة.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 3: PRACTICAL TASK STEP-BY-STEP                   -->
+    <!-- ======================================================== -->
+    <section id="practical-guide" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest block mb-1">دليل المهمة العملية</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-video text-indigo-400"></i>
+            <span>خطوات تسجيل فيديو المهمة العملية بنجاح 100% (Screencast Guide)</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="glass-card p-6 sm:p-8 rounded-2xl border border-indigo-500/30 space-y-6">
+        
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          في مهمة <strong>Attachment Practical Task</strong>، يُطلب منك تسجيل شاشتك أثناء إعادة إنتاج خطوات محددة لموقع ويب أو تطبيق. اتبع هذا التسلسل القياسي الذي توصي به أكاديمية Test IO لتفادي أي رفض:
+        </p>
+
+        <!-- Step-by-step process -->
+        <div class="space-y-4">
+          
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0">1</span>
+            <div class="space-y-1 text-xs">
+              <strong class="text-white text-sm block">التحضير المسبق قبل التسجيل (Setup):</strong>
+              <p class="text-slate-300 leading-relaxed">
+                اذهب إلى الصفحة المحددة للمهمة. أغلق أي تبويبات شخصية في المتصفح. تأكد من ضبط لغة المتصفح على الإنجليزية، وتأكد من كتم صوت المايكروفون في برنامج التسجيل.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0">2</span>
+            <div class="space-y-1 text-xs">
+              <strong class="text-white text-sm block">بدء التسجيل وعمل Refresh:</strong>
+              <p class="text-slate-300 leading-relaxed">
+                اضغط على زر بدء التسجيل في البرنامج، ثم قم بعمل <strong>تحديث للصفحة (Refresh)</strong> لتوضيح الحالة الابتدائية للموقع وعنوان الـ URL بوضوح.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0">3</span>
+            <div class="space-y-1 text-xs">
+              <strong class="text-white text-sm block">تنفيذ الخطوة التي تظهر العيب فقط (Trigger Action):</strong>
+              <p class="text-slate-300 leading-relaxed">
+                نفذ الحركة المطلوبة مباشرة (مثلاً: الضغط على الزر، أو إدخال القيمة). لا تتردد بالماوس ولا تضيع وقتاً في خطوات تصفح جانبية لا علاقة لها بالخطأ.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0">4</span>
+            <div class="space-y-1 text-xs">
+              <strong class="text-white text-sm block">الانتظار لثوانٍ ثم إيقاف التسجيل:</strong>
+              <p class="text-slate-300 leading-relaxed">
+                بمجرد حدوث الخطأ (ظهور رسالة العطل أو عدم الاستجابة)، انتظر ثانيتين ليكون واضحاً ثم <strong>أوقف التسجيل فوراً</strong> (المدة المثالية للفيديو بين 10 إلى 25 ثانية، وممنوع تجاوز 60 ثانية).
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm shrink-0">5</span>
+            <div class="space-y-1 text-xs">
+              <strong class="text-white text-sm block">مراجعة الفيديو قبل رفعه (Self-Review):</strong>
+              <p class="text-slate-300 leading-relaxed">
+                افتح الفيديو على جهازك وشاهده: هل هو MP4؟ هل الصوت صامت؟ هل الرابط ظاهر؟ هل الحجم أقل من 25MB؟ إذا كان كل شيء سليماً، ارفعه في المنصة وأنت واثق 100%!
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 4: RECOMMENDED TOOLS BY PLATFORM                 -->
+    <!-- ======================================================== -->
+    <section class="space-y-6">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">الأدوات المقترحة رسمياً</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-toolbox text-emerald-400"></i>
+            <span>أفضل برامج التسجيل والتقاط الشاشة لكل نظام</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        
+        <!-- Windows -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-cyan-400 font-bold text-sm">
+            <i class="fa-brands fa-windows"></i>
+            <span>أجهزة Windows</span>
+          </div>
+          <div class="space-y-1.5 text-slate-300">
+            <div>• <strong class="text-white">Snipping Tool:</strong> مدمجة ومجانية للصور.</div>
+            <div>• <strong class="text-white">ScreenPal / Bandicam:</strong> لتسجيل فيديو MP4 مع إظهار تأثير النقر.</div>
+            <div>• <strong class="text-white">Clipchamp:</strong> مدمجة لتغبيش البيانات (Blur) وضبط الحجم.</div>
+          </div>
+        </div>
+
+        <!-- macOS -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-slate-200 font-bold text-sm">
+            <i class="fa-brands fa-apple"></i>
+            <span>أجهزة macOS</span>
+          </div>
+          <div class="space-y-1.5 text-slate-300">
+            <div>• <strong class="text-white">Cmd + Shift + 3:</strong> للشاشة كاملة.</div>
+            <div>• <strong class="text-white">Cmd + Shift + 4:</strong> لتحديد جزء.</div>
+            <div>• <strong class="text-white">QuickTime / Built-in:</strong> لتسجيل الشاشة (تأكد من تحويل MOV إلى MP4).</div>
+            <div>• <strong class="text-white">iMovie:</strong> لتطبيق الـ Blur.</div>
+          </div>
+        </div>
+
+        <!-- Android -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+            <i class="fa-brands fa-android"></i>
+            <span>أجهزة Android</span>
+          </div>
+          <div class="space-y-1.5 text-slate-300">
+            <div>• <strong class="text-white">Built-in Recorder:</strong> مسجل الشاشة المدمج في شريط الإشعارات (Android 11+).</div>
+            <div>• <strong class="text-white">AZ Screen Recorder:</strong> تطبيق ممتاز ومجاني من Google Play.</div>
+            <div>• <strong class="text-white">ScreenMaster:</strong> لالتقاط وتحديد الصور.</div>
+          </div>
+        </div>
+
+        <!-- iOS -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+          <div class="flex items-center gap-2 text-pink-400 font-bold text-sm">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>أجهزة iOS (iPhone / iPad)</span>
+          </div>
+          <div class="space-y-1.5 text-slate-300">
+            <div>• <strong class="text-white">Screen Recording:</strong> في Control Center.</div>
+            <div>• <strong class="text-white">Markup:</strong> لتحديد الأخطاء في الصور بعد التقاطها مباشرة.</div>
+            <div class="text-amber-400 font-bold">• هام: تحويل .MOV لـ .MP4 عبر HandBrake أو CloudConvert قبل الرفع.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 5: ATTACHMENT QUIZ PREP & QUESTION BANK          -->
+    <!-- ======================================================== -->
+    <section id="quiz-prep" class="space-y-6 scroll-mt-24">
+      
+      <div class="pb-3 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-rose-400 uppercase tracking-widest block mb-1">حلول الكويز النموذجية</span>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-clipboard-question text-rose-400"></i>
+            <span>بنك أسئلة وإجابات كويز المرفقات (Attachment Quiz) بنسبة 100%</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- Q1 -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 1</span>
+            <span class="text-xs text-slate-400">نوع المرفق للأخطاء الوظيفية</span>
+          </div>
+          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
+            Q: What attachment is required when reporting a Functional Bug?
+          </h3>
+          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">A screencast (video)</strong>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            💡 الأخطاء الوظيفية تتطلب دائماً فيديو شاشة (Screencast) لأنها تتضمن إجراءً وخطوات لا يمكن للصور الثابتة توضيح أسبابها.
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 2</span>
+            <span class="text-xs text-slate-400">أقصى مدة لفيديو تقرير الخطأ</span>
+          </div>
+          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
+            Q: What is the maximum duration for a Bug Report screencast?
+          </h3>
+          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">60 seconds (1 minute)</strong>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            💡 الحد الأقصى لفيديو تقرير الخطأ هو 60 ثانية، ويجب أن يقتصر على الخطوة الأخيرة التي تسبب المشكلة فقط.
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 3</span>
+            <span class="text-xs text-slate-400">أقصى مدة لفيديو إعادة الإنتاج</span>
+          </div>
+          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
+            Q: What is the maximum time for a screencast attached to a Reproduction or User Story?
+          </h3>
+          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">15 seconds</strong>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            💡 في الـ Reproduction مطلوب إظهار الحركة الأخيرة التي تثبت تكرار الخطأ فقط، لذلك الحد الأقصى 15 ثانية فقط.
+          </p>
+        </div>
+
+        <!-- Q4 -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 4</span>
+            <span class="text-xs text-slate-400">صيغة ملف الفيديو الإلزامية</span>
+          </div>
+          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
+            Q: What video format is strictly required for screencasts in Test IO?
+          </h3>
+          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">.MP4 (with H.264 codec preferred)</strong>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            💡 لا تقبل المنصة صيغ MOV أو AVI أو MKV. يجب أن يكون ملف الفيديو دائماً MP4 بحجم أقل من 25MB.
+          </p>
+        </div>
+
+        <!-- Q5 -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 5</span>
+            <span class="text-xs text-slate-400">تسجيل الصوت وقص الفيديو</span>
+          </div>
+          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
+            Q: Are testers allowed to edit screencasts by cutting middle parts or fast-forwarding?
+          </h3>
+          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+            <strong class="text-white font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 ml-2">No, it is strictly prohibited</strong>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            💡 ممنوع القص من المنتصف وممنوع تسريع الفيديو نهائياً. يجب أن يكون التسجيل متواصلاً (In one go) مع كتم الصوت.
+          </p>
+        </div>
+
+        <!-- Q6 -->
+        <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="badge-pill bg-rose-500/20 text-rose-400 text-xs font-bold">السؤال 6</span>
+            <span class="text-xs text-slate-400">انهيار تطبيقات الموبايل (App Crashes)</span>
+          </div>
+          <h3 class="text-sm font-bold text-white font-mono leading-relaxed">
+            Q: What additional mandatory attachment must accompany an App Crash report?
+          </h3>
+          <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-xs">
+            <span class="text-emerald-400 font-bold">✅ الإجابة الصحيحة:</span>
+            <strong class="text-white font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">A Crash Log (with coherent timings)</strong>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            💡 تقارير الكراش في التطبيقات يُشترط معها ملف Crash Log إلزامي يتطابق توقيته مع وقت حدوث الانهيار في الفيديو.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 6: CTA TO ACADEMY                                -->
+    <!-- ======================================================== -->
+    <section class="glass-panel p-6 sm:p-8 rounded-3xl border border-rose-500/30 bg-gradient-to-br from-rose-950/20 via-slate-900 to-slate-950 space-y-6 text-center">
+      <div class="w-16 h-16 rounded-2xl bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center text-2xl mx-auto shadow-lg shadow-rose-500/10">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <div class="space-y-2 max-w-xl mx-auto">
+        <h2 class="text-2xl font-black text-white">أنت جاهز الآن لاجتياز مهمتي الموديول الثالث!</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          افتح صفحة الأكاديمية وابدأ بحل الكويز (Task 1)، ثم قم بتسجيل فيديو شاشة نظيف للمهمة العملية (Task 2) وفقاً للخطوات أعلاه.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a href="https://tester.test.io/course_registrations/16534017/course_pages/101" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-rose-600/20 transition flex items-center gap-2">
+          <span>بدء كويز المرفقات في المنصة (Task 1) ↗</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="https://tester.test.io/course_registrations/16534019/course_pages/118" target="_blank" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-indigo-600/20 transition flex items-center gap-2">
+          <span>تسليم المهمة العملية (Task 2) ↗</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="index.html" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition text-xs sm:text-sm font-semibold">
+          <span>العودة للبوابة الرئيسية ⬅️</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="font-bold text-rose-400 hover:underline">Test IO Master Hub</a>
+        <span>— دليل اجتياز كورس الاستكشاف: الموديول الثالث (Bug Report Attachments)</span>
+      </div>
+      <div>
+        <a href="index.html" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition font-semibold">
+          العودة للرئيسية ⬅️
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
