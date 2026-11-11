@@ -46,9 +46,10 @@
           <i class="fa-solid fa-map"></i>
           <span>الخطوات</span>
         </button>
-        <a href="#quizSolutionsBox" onclick="document.querySelector('[data-tab-target=tab-roadmap]').click();" class="px-3 py-2 font-semibold rounded-xl text-cyan-300 bg-cyan-950/40 hover:bg-cyan-900/40 border border-cyan-500/30 transition-all flex items-center gap-1.5">
+        <a href="quiz-bug-types.html" target="_blank" class="px-3 py-2 font-semibold rounded-xl text-cyan-300 bg-cyan-950/40 hover:bg-cyan-900/40 border border-cyan-500/30 transition-all flex items-center gap-1.5">
           <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
-          <span>حل كويز Bug Types 📝</span>
+          <span>شرح وحل كويز Bug Types 📝</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-cyan-400"></i>
         </a>
         <button data-tab-target="tab-generator" class="px-3 py-2 font-semibold rounded-xl text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all flex items-center gap-1.5">
           <i class="fa-solid fa-bolt"></i>
@@ -93,7 +94,7 @@
     <!-- Mobile Nav Bar -->
     <div class="xl:hidden flex items-center gap-2 overflow-x-auto px-4 py-2 border-t border-slate-800/60 bg-slate-900/90 scrollbar-none text-xs">
       <button data-tab-target="tab-roadmap" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg bg-indigo-600 text-white">الخطوات</button>
-      <a href="#quizSolutionsBox" onclick="document.querySelector('[data-tab-target=tab-roadmap]').click();" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40">حل كويز Bug Types 📝</a>
+      <a href="quiz-bug-types.html" target="_blank" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/40">شرح وحل كويز Bug Types 📝</a>
       <button data-tab-target="tab-generator" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800">مولد التقارير</button>
       <button data-tab-target="tab-checklist" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800 text-emerald-400">الفاحص الآلي</button>
       <button data-tab-target="tab-calculator" class="whitespace-nowrap px-3 py-1.5 font-semibold rounded-lg text-slate-400 hover:bg-slate-800 text-cyan-400">حاسبة الأرباح</button>
@@ -213,11 +214,11 @@
             </div>
           </div>
           <div class="pt-3 border-t border-slate-800/80 space-y-2">
-            <!-- Direct Anchor to Quiz Solution -->
-            <a href="#quizSolutionsBox" id="toggleQuizBtn" class="w-full py-2.5 px-3 text-xs font-bold rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white shadow-md shadow-cyan-600/20 transition flex items-center justify-center gap-2">
-              <i class="fa-solid fa-clipboard-question text-sm"></i>
-              <span>عرض حل وشرح كويز Bug Types كاملاً (9/9 أسئلة) 📝</span>
-              <i id="quizChevron" class="fa-solid fa-arrow-down text-xs"></i>
+            <!-- Link to dedicated Quiz Solution page -->
+            <a href="quiz-bug-types.html" target="_blank" class="w-full py-2.5 px-3 text-xs font-bold rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white shadow-md shadow-cyan-600/20 transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-sm"></i>
+              <span>فتح صفحة الشرح الكامل وحل كويز Bug Types 🚀</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </a>
             <a href="https://www.youtube.com/watch?v=sA9_6PzZwIg&list=PLTGLQGJhM34g&index=2" target="_blank" class="w-full py-2 px-3 text-xs font-semibold rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 transition flex items-center justify-center gap-2">
               <i class="fa-brands fa-youtube text-red-500 text-sm"></i>
@@ -344,236 +345,23 @@
 
       </div>
 
-      <!-- ======================================================== -->
-      <!-- EXPANDABLE SECTION: BUG TYPES QUIZ SOLUTIONS & EXPLANATION -->
-      <!-- ======================================================== -->
-      <div id="quizSolutionsBox" class="glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/40 bg-slate-900/90 shadow-2xl space-y-6">
-        
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-2">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>الموديول 1: Bug Types Assessment Quiz (100% Solved)</span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-              <span>بنك حل وشرح كويز أنواع الأخطاء (Bug Types) كاملاً</span>
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-400 mt-1">حلول الأسئلة الـ 9 النموذجية المعتمدة مع التفسير العلمي والفيديوهات لكل سؤال.</p>
-          </div>
-          <span class="badge-pill bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold self-start sm:self-auto">
-            <i class="fa-solid fa-check-double mr-1.5"></i>
-            9 من 9 إجابات صحيحة (100%)
-          </span>
+      <!-- DEDICATED QUIZ PAGE CALLOUT BANNER -->
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/30 bg-slate-900/90 text-center space-y-4 my-8 shadow-xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>صفحة مستقلة مخصصة للكويزات</span>
         </div>
-
-        <!-- Questions Grid -->
-        <div class="grid grid-cols-1 gap-4">
-
-          <!-- Q1 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 1 (Page 2 / 10)</span>
-              <span class="badge-pill bg-indigo-500/20 text-indigo-300 text-[10px]">3 إجابات صحيحة</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q1: A content bug (a broken link (404 error)) is upgraded to a low functional bug if the link is located in:
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300 space-y-1">
-              <div class="font-bold text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابات الصحيحة:</span>
-              </div>
-              <ul class="list-disc list-inside space-y-0.5 text-slate-200">
-                <li><strong class="text-emerald-400">Breadcrumb navigation</strong></li>
-                <li><strong class="text-emerald-400">Header/footer</strong></li>
-                <li><strong class="text-emerald-400">Navigation menu</strong></li>
-              </ul>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> الروابط المكسورة الأصل فيها أنها Content Bug، لكنها ترقى تلقائياً إلى <strong>Low Functional</strong> إذا وُجدت في أدوات التنقل الأساسية للموقع (Header, Footer, Navigation, Breadcrumbs).
-            </p>
-          </div>
-
-          <!-- Q2 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 2 (Page 3 / 10)</span>
-              <span class="badge-pill bg-rose-500/20 text-rose-300 text-[10px]">سؤال خادع شائع</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q2: Can you submit spelling mistakes as content bugs on our platform?
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">No</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> تنص تعليمات Test IO الرسمية بشكل صارم: <em>"Spelling mistakes are not considered content bugs on our platform and cannot be submitted"</em>.
-            </p>
-          </div>
-
-          <!-- Q3 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 3 (Page 4 / 10)</span>
-              <span class="badge-pill bg-indigo-500/20 text-indigo-300 text-[10px]">3 إجابات صحيحة</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q3: Which of the following scenarios are certainly functional bugs (as compared to usability suggestions)?
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300 space-y-1">
-              <div class="font-bold text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابات الصحيحة:</span>
-              </div>
-              <ul class="list-disc list-inside space-y-0.5 text-slate-200">
-                <li><strong class="text-emerald-400">A button does not trigger any action</strong></li>
-                <li><strong class="text-emerald-400">The customer's product works differently from what was stated in the test instructions</strong></li>
-                <li><strong class="text-emerald-400">An unknown error appears that does not let you continue</strong></li>
-              </ul>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> الخيار المستبعد (اختلاف توقعاتك الشخصية عن تصميم الموقع) يُعتبر مجرد Usability Suggestion؛ لأن العميل له الحرية في تنفيذ التصميم الذي يراه مناسباً.
-            </p>
-          </div>
-
-          <!-- Q4 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 4 (Page 5 / 10)</span>
-              <a href="https://youtu.be/1kCyUwl0nms?si=ljouTPMBRDaAaJxj" target="_blank" class="text-xs text-red-400 hover:text-red-300 flex items-center gap-1 font-semibold">
-                <i class="fa-brands fa-youtube"></i>
-                <span>مشاهدة فيديو السؤال</span>
-              </a>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q4: When the user clicks on the test IO logo at the top left corner of the Pricing page, they get redirected back to the landing page.
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">Not a bug</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> النقر على اللوجو للرجوع إلى الصفحة الرئيسية هو المعيار الافتراضي المتوقع في كافة مواقع العالم (Standard Web Behavior).
-            </p>
-          </div>
-
-          <!-- Q5 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 5 (Page 6 / 10)</span>
-              <span class="badge-pill bg-purple-500/20 text-purple-300 text-[10px]">Missing Translation</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q5: On the landing page, when changing the language to Russian, some tabs of the main navigation menu remain in English.
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">Content</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> النصوص غير المترجمة (Missing translations) هي عيب في محتوى النص المعروض وتُصنف كـ <strong>Content Bug</strong> طالما أن التبويبات تعمل وتنقلك للمكان الصحيح.
-            </p>
-          </div>
-
-          <!-- Q6 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 6 (Page 7 / 10)</span>
-              <span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px]">Filter Functionality</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q6: On the Home & Living product page, when the custom price filter (from $10 to $12) is applied, some products outside of the given price range are still displayed.
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">Functional (High)</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> الفلاتر وظيفة منطقية في المتجر؛ إذا فشلت في فرز المنتجات وعرضت أسعاراً غير صحيحة، فهذا عطل وظيفي <strong>Functional (High)</strong>.
-            </p>
-          </div>
-
-          <!-- Q7 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 7 (Page 8 / 10)</span>
-              <span class="badge-pill bg-purple-500/20 text-purple-300 text-[10px]">Text Cut Off</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q7: What bug type would you suggest for cut off button texts (e.g. "CAN..." and "CAN NOT REPR...")?
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">Visual</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> النصوص أو العناصر المقطوعة خارج حدود الأزرار أو الصناديق (Text cut off) هي مشكلة في واجهة المستخدم الرسومية وتُصنف صراحة كـ <strong>Visual Bug</strong>.
-            </p>
-          </div>
-
-          <!-- Q8 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 8 (Page 9 / 10)</span>
-              <span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px]">Authentication Error</span>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q8: Users are unable to sign in with their Apple account. Tapping on “Continue with apple” on the sign-in page leads to a 403 error message.
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">Functional (High)</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> تسجيل الدخول ميزة وظيفية رئيسية؛ فشل تسجيل الدخول بـ Apple وظهور خطأ 403 هو عطل وظيفي <strong>Functional (High)</strong> لوجود خيارات تسجيل بديلة.
-            </p>
-          </div>
-
-          <!-- Q9 -->
-          <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400">السؤال 9 (Page 10 / 10)</span>
-              <a href="https://youtube.com/shorts/udgvBt7C9OY?si=8xTotzlRYXJfUTug" target="_blank" class="text-xs text-red-400 hover:text-red-300 flex items-center gap-1 font-semibold">
-                <i class="fa-brands fa-youtube"></i>
-                <span>مشاهدة فيديو الشورتس</span>
-              </a>
-            </div>
-            <p class="text-sm font-semibold text-white leading-relaxed">
-              Q9: The app crashes when the user swipes to accept the test invitation.
-            </p>
-            <div class="p-3 rounded-xl bg-slate-900/90 border border-emerald-500/30 text-xs text-emerald-300">
-              <strong class="text-emerald-400 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>الإجابة الصحيحة:</span>
-                <span class="text-white font-mono text-sm">Functional (Critical)</span>
-              </strong>
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              💡 <strong>السبب:</strong> انهيار التطبيق المفاجئ (App Crash) وتوقفه عن العمل بالكامل يمنع المستخدم من استكمال العملية الأساسية ويُصنف دائماً كـ <strong>Functional (Critical)</strong>.
-            </p>
-          </div>
-
+        <h3 class="text-xl sm:text-2xl font-black text-white">هل تستعد لاجتياز كويز Bug Types (الموديول الأول)؟</h3>
+        <p class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          تم تخصيص صفحة كاملة مستقلة تحتوي أولاً على الشرح النظري المعتمد لمعايير وقواعد Test IO، متبوعاً بحل الأسئلة الـ 9 النموذجية بالفيديوهات والتفسير لتقفيل الكويز 100%.
+        </p>
+        <div>
+          <a href="quiz-bug-types.html" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold text-sm shadow-xl shadow-cyan-600/25 transition">
+            <i class="fa-solid fa-graduation-cap text-base"></i>
+            <span>فتح صفحة الشرح الكامل وحل الكويز في صفحة مستقلة 🚀</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </a>
         </div>
-
       </div>
 
     </div>
