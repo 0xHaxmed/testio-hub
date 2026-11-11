@@ -64,6 +64,34 @@
 3. **احرص على جودة الفيديو:** التزم بإظهار تاريخ وساعة الجهاز، ومؤشر الفأرة (أو اللمسات على الموبايل).
 4. **العنوان الواضح:** اكتب العنوان بالصيغة القياسية (مذكورة بالأسفل).
 
+### 📝 بنك الإجابات النموذجية لكويز الموديول الأول (Bug Types Assessment Quiz):
+* **Q1: A content bug (404 error) is upgraded to a low functional bug if located in:**
+  * **الإجابات (3 صحيحة):** `Breadcrumb navigation` + `Header/footer` + `Navigation menu`.
+  * **السبب:** أي رابط مكسور في عناصر التنقل الأساسية للموقع يُرقى لـ Low Functional.
+* **Q2: Can you submit spelling mistakes as content bugs?**
+  * **الإجابة:** `No`.
+  * **السبب:** الأخطاء الإملائية ممنوع رفعها في Test IO وليست Content Bug.
+* **Q3: Scenarios that are certainly functional bugs (as compared to usability suggestions):**
+  * **الإجابات (3 صحيحة):** `A button does not trigger any action` + `Product works differently from test instructions` + `Unknown error appears that does not let you continue`.
+* **Q4: Clicking the Test IO logo at the top left redirects to landing page:**
+  * **الإجابة:** `Not a bug`.
+  * **السبب:** العودة للصفحة الرئيسية عند الضغط على اللوجو سلوك طبيعي وافتراضي.
+* **Q5: Changing language to Russian, some tabs of navigation menu remain in English:**
+  * **الإجابة:** `Content`.
+  * **السبب:** النصوص غير المترجمة (Missing translations) عيب في المحتوى Content Bug.
+* **Q6: Custom price filter ($10 to $12) applied, products outside price range displayed:**
+  * **الإجابة:** `Functional (High)`.
+  * **السبب:** الفلاتر وظيفة منطقية وفشلها عطل وظيفي High.
+* **Q7: Text cut off on buttons ("CAN..." and "CAN NOT REPR..."):**
+  * **الإجابة:** `Visual`.
+  * **السبب:** النصوص المقطوعة مشكلة في الواجهة الرسومية Visual Bug.
+* **Q8: Unable to sign in with Apple account, leads to 403 error:**
+  * **الإجابة:** `Functional (High)`.
+  * **السبب:** تعطل تسجيل الدخول هو عطل وظيفي رئيسي.
+* **Q9: App crashes when user swipes to accept test invitation:**
+  * **الإجابة:** `Functional (Critical)`.
+  * **السبب:** انهيار التطبيق المفاجئ (Crash) هو دائماً Functional (Critical).
+
 ---
 
 ## 4. المرحلة الثالثة: فهم دورات الاختبار (Test Cycles & Invitations)

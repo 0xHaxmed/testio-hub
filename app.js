@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlossarySearch();
   initCalculator();
   initAutomatedAuditor();
+  initQuizToggle();
 });
 
 // Toast notification function
@@ -585,4 +586,19 @@ function calculateEarnings() {
   if (outputEl) {
     outputEl.innerText = `$${total.toFixed(2)}`;
   }
+}
+
+// 8. Quiz Solution Scroll & Toggle
+function initQuizToggle() {
+  const btn = document.getElementById('toggleQuizBtn');
+  const target = document.getElementById('quizSolutionsBox');
+  if (!btn || !target) return;
+
+  btn.addEventListener('click', () => {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.classList.add('ring-2', 'ring-cyan-400');
+    setTimeout(() => {
+      target.classList.remove('ring-2', 'ring-cyan-400');
+    }, 2000);
+  });
 }
